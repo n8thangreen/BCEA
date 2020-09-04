@@ -16,5 +16,7 @@ best_interv_given_k(eib, ref, comp)
 Select best option for each value of willingness to pay
 }
 \examples{
-
+data(Vaccine)
+he <- bcea(e,c)
+ 
 }

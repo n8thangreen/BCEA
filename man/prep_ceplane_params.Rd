@@ -7,16 +7,21 @@
 prep_ceplane_params(he, wtp, ...)
 }
 \arguments{
-\item{he}{}
+\item{he}{A \code{bcea} object containing the results of the Bayesian
+modelling and the economic evaluation.}
 
-\item{...}{}
+\item{wtp}{Willingness-to-pay}
+
+\item{...}{Extra arguments}
 }
 \value{
-
+List
 }
 \description{
 In ggplot format, combine user supplied with defaults.
 }
 \examples{
-
+data(Vaccine)
+he <- bcea(e,c)
+ 
 }

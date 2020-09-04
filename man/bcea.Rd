@@ -103,7 +103,6 @@ post-processed to give the health economic analysis. The output is stored in
 an object of the class "bcea".
 }
 \examples{
-
 # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 # Bayesian model and economic problem
 
@@ -221,11 +220,10 @@ evi.plot(m)
 }
 \references{
 Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity Analysis in
-Health Economics.  Statistical Methods in Medical Research.
+Health Economics. Statistical Methods in Medical Research.
 doi:10.1177/0962280211419832.
 
-Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall,
-London
+Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall, London.
 }
 \author{
 Gianluca Baio, Andrea Berardi

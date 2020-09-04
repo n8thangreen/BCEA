@@ -10,8 +10,6 @@
 #' are rendered in a slightly different way than single plots.
 #' 
 #' @template args-he
-#' \code{\link{ceplane.plot}}, \code{\link{eib.plot}} and
-#' \code{\link{ceac.plot}}.
 #' @param wtp The value of the willingness to pay parameter. It is passed to
 #' \code{\link{ceplane.plot}}.
 #' @param pos Parameter to set the position of the legend. Can be given in form

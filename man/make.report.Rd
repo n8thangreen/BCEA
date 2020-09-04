@@ -43,10 +43,10 @@ shown.}
 Constructs the automated report from the output of the BCEA.
 }
 \examples{
+#' data(Vaccine)
+he <- bcea(e,c)
 
 \dontrun{
-  data(Vaccine)
-  m <- bcea(e, c, ref = 2)
   make.report(m)
 }
 

@@ -56,7 +56,8 @@ cost is a list containing the measure of costs computed from the various
 models (one matrix with n_sim x n_ints simulations for each model).
 }
 \examples{
-
+##TBD
+ 
 }
 \references{
 Baio G. (2012). Bayesian Methods in Health Economics.

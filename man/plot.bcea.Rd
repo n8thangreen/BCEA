@@ -4,23 +4,11 @@
 \alias{plot.bcea}
 \title{Summary Plot of the Health Economic Analysis}
 \usage{
-\method{plot}{bcea}(
-  he,
-  comparison = NULL,
-  wtp = 25000,
-  pos = FALSE,
-  graph = c("base", "ggplot2"),
-  ...
-)
+\method{plot}{bcea}(he, wtp = 25000, pos = FALSE, graph = c("base", "ggplot2"), ...)
 }
 \arguments{
 \item{he}{A \code{bcea} object containing the results of the Bayesian
 modelling and the economic evaluation.}
-
-\item{comparison}{Selects the comparator, in case of more than two
-interventions being analysed. The value is passed to
-\code{\link{ceplane.plot}}, \code{\link{eib.plot}} and
-\code{\link{ceac.plot}}.}
 
 \item{wtp}{The value of the willingness to pay parameter. It is passed to
 \code{\link{ceplane.plot}}.}
@@ -58,7 +46,6 @@ overriding its default for \code{pos=FALSE}, since multiple ggplot2 plots
 are rendered in a slightly different way than single plots.
 }
 \examples{
-
 # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 # Bayesian model and economic problem
 
@@ -80,19 +67,19 @@ he <- bcea(
       )
 
 # Plots the summary plots for the "bcea" object m using base graphics
-plot(he, graph="base")
+plot(he, graph = "base")
 
 # Plots the same summary plots using ggplot2
 if(require(ggplot2)){
-plot(he, graph="ggplot2")
+plot(he, graph = "ggplot2")
 
 ##### Example of a customized plot.bcea with ggplot2
 plot(he,
-  graph = "ggplot2",                                      # use ggplot2
-  theme = theme(plot.title=element_text(size=rel(1.25))), # theme elements must have a name
-  ICER.size = 1.5,                                        # hidden option in ceplane.plot
-  size = rel(2.5)                                         # modifies the size of k = labels
-  )                                                       # in ceplane.plot and eib.plot
+  graph = "ggplot2",                                        # use ggplot2
+  theme = theme(plot.title = element_text(size=rel(1.25))), # theme elements must have a name
+  ICER.size = 1.5,                                          # hidden option in ceplane.plot
+  size = rel(2.5)                                           # modifies the size of k = labels
+  )                                                         # in ceplane.plot and eib.plot
 }
 
 }

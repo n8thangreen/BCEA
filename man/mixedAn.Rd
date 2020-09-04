@@ -58,7 +58,6 @@ Runs the cost-effectiveness analysis, but accounts for the fact that more
 than one intervention is present on the market
 }
 \examples{
-
 # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 # Bayesian model and economic problem
 

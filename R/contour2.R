@@ -299,3 +299,4 @@ contour2 <- function(he,
     return(contour)
   } # end if !base.graphics
 }
+

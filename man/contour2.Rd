@@ -55,7 +55,6 @@ effectiveness (x-axis).  Also adds the sustainability area (i.e. below the
 selected value of the willingness-to-pay threshold).
 }
 \examples{
-
 ## create the bcea object m for the smoking cessation example
 data(Smoking)
 m <- bcea(e, c, ref = 4, interventions = treats, Kmax = 500)

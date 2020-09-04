@@ -21,10 +21,9 @@ output and synthetic information on the economic measures (EIB, CEAC, EVPI).
 }
 \description{
 Produces a table printout with some summary results of the health economic
-evaluation
+evaluation.
 }
 \examples{
-
 data(Vaccine)
 
 summary(he)
@@ -35,8 +34,7 @@ Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity
 Analysis in Health Economics.  Statistical Methods in Medical Research
 doi:10.1177/0962280211419832.
 
-Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall,
-London.
+Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall, London.
 }
 \seealso{
 \code{\link{bcea}}

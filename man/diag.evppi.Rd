@@ -2,7 +2,7 @@
 % Please edit documentation in R/diag.evppi.R
 \name{diag.evppi}
 \alias{diag.evppi}
-\title{Diagnostic plots for the results of the EVPPI}
+\title{Diagnostic Plots for the Results of the EVPPI}
 \usage{
 diag.evppi(evppi, he, plot_type = c("residuals", "qqplot"), interv = 1)
 }
@@ -48,15 +48,16 @@ distribution (x-coordinate). If the two distributions being compared are
 identical, the Q-Q plot follows the 45 degrees line.
 }
 \examples{
- 
+data(Vaccine)
+he <- bcea(e,c)
+
 }
 \references{
 Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity
 Analysis in Health Economics.  Statistical Methods in Medical Research
 doi:10.1177/0962280211419832.
 
-Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall,
-London
+Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall, London.
 }
 \seealso{
 \code{\link{bcea}}, \code{\link{evppi}}

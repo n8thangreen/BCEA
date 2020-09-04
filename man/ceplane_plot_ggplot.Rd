@@ -21,4 +21,33 @@ modelling and the economic evaluation.}
 \description{
 ceplane_plot_ggplot
 }
+\examples{
+
+data(Vaccine)
+he <- bcea(e, c)
+
+ceplane.plot(he, graph = "ggplot2")
+
+data(Smoking)
+he <- bcea(e, c, ref = 4, Kmax = 500, interventions = treats)
+
+ceplane.plot(he, graph = "ggplot2")
+
+ceplane.plot(he,
+             wtp = 200,
+             pos = "right",
+             ICER_size = 2,
+             graph = "ggplot2")
+   
+ceplane.plot(he,
+             wtp = 200,
+             pos = TRUE,
+             graph = "ggplot2")
+
+ceplane.plot(he,
+             graph = "ggplot2",
+             wtp=200,
+             theme = theme_linedraw())
+             
+}
 \keyword{hplot}

@@ -23,7 +23,6 @@ being analysed is the most cost-effective and the cost-effectiveness
 acceptability frontier.
 }
 \examples{
-
 # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 # Bayesian model and economic problem
 

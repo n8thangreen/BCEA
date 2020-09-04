@@ -19,5 +19,7 @@ Defined as
 \deqn{ICER = \Delta_c/\Delta_e}
 }
 \examples{
-
+data(Vaccine)
+he <- bcea(e,c)
+ 
 }

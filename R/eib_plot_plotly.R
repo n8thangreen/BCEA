@@ -1,6 +1,11 @@
 
 #' eib_plot_plotly
 #'
+#' @template args-he 
+#' @param wtp 
+#' @param pos_legend 
+#' @param graph_params 
+#'
 #' @export
 #' 
 eib_plot_plotly <- function(he,

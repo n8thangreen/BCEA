@@ -1,6 +1,13 @@
 
+#' prep_eib_plot_params
+#' 
+#' @param he 
+#' @param ... 
+#'
 #' @keywords dplot
-#
+#'
+#' @export
+#' 
 prep_eib_plot_params <- function(he, ...) {
   
   extra_args <- list(...)

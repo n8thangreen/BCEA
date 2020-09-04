@@ -4,23 +4,11 @@
 \alias{ceplane.plot.bcea}
 \title{Cost-effectiveness Plane Plot}
 \usage{
-\method{ceplane.plot}{bcea}(
-  he,
-  comparison = NULL,
-  wtp = 25000,
-  pos = c(0, 1),
-  graph = c("base", "ggplot2"),
-  ...
-)
+\method{ceplane.plot}{bcea}(he, wtp = 25000, pos = c(0, 1), graph = c("base", "ggplot2"), ...)
 }
 \arguments{
 \item{he}{A \code{bcea} object containing the results of the Bayesian
 modelling and the economic evaluation.}
-
-\item{comparison}{Selects the comparator, in case of more than two
-interventions being analysed. Default as \code{NULL} plots all the
-comparisons together. Any subset of the possible comparisons can be selected
-(e.g., \code{comparison = c(1,3)} or \code{comparison = 2}).}
 
 \item{wtp}{The value of the willingness to pay parameter. Not used if
 \code{graph = "base"} for multiple comparisons.}
@@ -92,7 +80,7 @@ m <- bcea(e, c, ref = 4, Kmax = 500, interventions = treats)
 ceplane.plot(m, wtp = 200, graph = "base")
 
 ## select only one comparator
-ceplane.plot(m, wtp = 200, graph = "base", comparison = 3)
+ceplane.plot(m, wtp = 200, graph = "base")
 
 ## or use ggplot2 instead
 if (requireNamespace("ggplot2")) {

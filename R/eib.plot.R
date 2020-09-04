@@ -65,7 +65,9 @@
 #' @importFrom grid unit
 #' @export
 #' 
-#' @example
+#' @examples
+#' data(Vaccine)
+#' he <- bcea(e, c)
 #' 
 eib.plot <- function(he,
                      pos = c(1, 0),

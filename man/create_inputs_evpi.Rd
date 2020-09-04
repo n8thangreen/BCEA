@@ -34,7 +34,8 @@ constant values and removes them to only leave the fundamental parameters
 non-Bayesian model).
 }
 \examples{
-
+##TBD
+ 
 }
 \seealso{
 \code{\link{bcea}}, \code{\link{evppi}}

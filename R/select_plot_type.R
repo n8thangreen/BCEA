@@ -1,5 +1,5 @@
 
-#' choose graphical engine
+#' Choose Graphical Engine
 #'
 #' @keywords dplot
 #' 

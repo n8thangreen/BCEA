@@ -2,11 +2,11 @@
 % Please edit documentation in R/select_plot_type.R
 \name{select_plot_type}
 \alias{select_plot_type}
-\title{choose graphical engine}
+\title{Choose Graphical Engine}
 \usage{
 select_plot_type(graph)
 }
 \description{
-choose graphical engine
+Choose Graphical Engine
 }
 \keyword{dplot}

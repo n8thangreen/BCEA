@@ -1,6 +1,11 @@
 
 #' eib_plot_base
 #'
+#' @template args-he 
+#' @param wtp 
+#' @param pos_legend 
+#' @param graph_params 
+#'
 #' @export
 #' 
 eib_plot_base <- function(he,
@@ -153,3 +158,4 @@ eib_plot_base <- function(he,
     ...)
   
 }
+

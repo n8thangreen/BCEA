@@ -29,7 +29,9 @@ the definition can be re-written as
 \deqn{IB = k\cdot\Delta_e - \Delta_c}.
 }
 \examples{
-
+data(Vaccine)
+he <- bcea(e,c)
+ 
 }
 \seealso{
 \code{\link{compute_EIB}}

@@ -7,16 +7,16 @@
 \method{evppi}{default}(param_idx, input, he, N = NULL, plot = FALSE, residuals = TRUE, ...)
 }
 \arguments{
-\item{param_idx}{}
+\item{param_idx}{Parameter index}
 
 \item{input}{}
 
 \item{he}{A \code{bcea} object containing the results of the Bayesian
 modelling and the economic evaluation.}
 
-\item{N}{}
+\item{N}{Default NULL}
 
-\item{plot}{}
+\item{plot}{TRUE or FALSE}
 
 \item{residuals}{}
 
@@ -37,5 +37,7 @@ for computational reasons rather than to aid fit.
 You can still plot the INLA mesh elements but not output the meshes.
 }
 \examples{
+data(Vaccine)
+he <- bcea(e,c)
 
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/bcea.default.R
 \name{bcea.default}
 \alias{bcea.default}
-\title{Default function}
+\title{bcea default function}
 \usage{
 \method{bcea}{default}(
   eff,
@@ -18,7 +18,7 @@
 List of computed values for CE Plane, ICER, EIB, CEAC, EVPI
 }
 \description{
-Compute a Bayesian cost-effectiveness analysis of two or more interv_names
+Compute a Bayesian cost-effectiveness analysis of two or more interv_names.
 }
 \details{
 INPUTS:
