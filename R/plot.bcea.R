@@ -10,9 +10,6 @@
 #' are rendered in a slightly different way than single plots.
 #' 
 #' @template args-he
-#' 
-#' @param comparison Selects the comparator, in case of more than two
-#' interventions being analysed. The value is passed to
 #' \code{\link{ceplane.plot}}, \code{\link{eib.plot}} and
 #' \code{\link{ceac.plot}}.
 #' @param wtp The value of the willingness to pay parameter. It is passed to
@@ -75,26 +72,25 @@
 #'       )
 #'
 #' # Plots the summary plots for the "bcea" object m using base graphics
-#' plot(he, graph="base")
+#' plot(he, graph = "base")
 #' 
 #' # Plots the same summary plots using ggplot2
 #' if(require(ggplot2)){
-#' plot(he, graph="ggplot2")
+#' plot(he, graph = "ggplot2")
 #' 
 #' ##### Example of a customized plot.bcea with ggplot2
 #' plot(he,
-#'   graph = "ggplot2",                                      # use ggplot2
-#'   theme = theme(plot.title=element_text(size=rel(1.25))), # theme elements must have a name
-#'   ICER.size = 1.5,                                        # hidden option in ceplane.plot
-#'   size = rel(2.5)                                         # modifies the size of k = labels
-#'   )                                                       # in ceplane.plot and eib.plot
+#'   graph = "ggplot2",                                        # use ggplot2
+#'   theme = theme(plot.title = element_text(size=rel(1.25))), # theme elements must have a name
+#'   ICER.size = 1.5,                                          # hidden option in ceplane.plot
+#'   size = rel(2.5)                                           # modifies the size of k = labels
+#'   )                                                         # in ceplane.plot and eib.plot
 #' }
 #' 
 #' @import ggplot2
 #' @export
 #' 
 plot.bcea <- function(he,
-                      comparison = NULL,
                       wtp = 25000,
                       pos = FALSE,
                       graph = c("base", "ggplot2"),
@@ -109,13 +105,11 @@ plot.bcea <- function(he,
     op <- par(mfrow = c(2,2))
     
     ceplane.plot(he,
-                 comparison = comparison,
                  wtp = wtp,
                  pos = pos,
                  graph = "base",...)
     
     eib.plot(he,
-             comparison = comparison,
              pos = pos,
              graph = "base",...)
     
@@ -134,7 +128,6 @@ plot.bcea <- function(he,
       message("falling back to base graphics\n")
       plot.bcea(
         he,
-        comparison = comparison,
         wtp = wtp,
         pos = pos,
         graph = "base", ...)
@@ -193,7 +186,6 @@ plot.bcea <- function(he,
         ceplane.plot(he,
                      wtp = wtp,
                      pos = ceplane.pos,
-                     comparison = comparison,
                      graph = "ggplot2", ...) +
         do.call(theme, theme_params) +
         theme_add
@@ -201,7 +193,6 @@ plot.bcea <- function(he,
       eib <-
         eib.plot(he,
                  pos = pos,
-                 comparison = comparison,
                  graph = "ggplot2", ...) +
         do.call(theme, theme_params) +
         theme_add
@@ -209,7 +200,6 @@ plot.bcea <- function(he,
       ceac <-
         ceac.plot(he,
                   pos = pos,
-                  comparison = comparison,
                   graph = "ggplot2") +
         do.call(theme, theme_params) +
         theme_add

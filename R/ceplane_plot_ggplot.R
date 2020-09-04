@@ -87,7 +87,8 @@ ceplane_plot_ggplot <- function(he,
                  y = graph_params$ylab)) +
     do.call(geom_abline, list(slope = wtp,
                               col = "black")) +
-    do.call(geom_point, graph_params$icer) +
+    # do.call(geom_point, graph_params$icer) +
+    do.call(stat_summary, graph_params$icer) +  ##TODO: why doesnt this work?
     do.call(annotate, graph_params$wtp) +
     do.call(theme, graph_params$legend) +
     do.call(annotate, graph_params$icer_txt)

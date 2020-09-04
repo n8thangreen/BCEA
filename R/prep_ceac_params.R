@@ -1,7 +1,7 @@
 
 #' @keywords dplot
 #' 
-prepare_ceac_params <- function(...) {
+prep_ceac_params <- function(...) {
   
   extra_params <- list(...)
   

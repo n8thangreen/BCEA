@@ -34,9 +34,15 @@ ceplane_ggplot_params <- function(he,
         data = data.frame(x = colMeans(he$delta_e),
                           y = colMeans(he$delta_c)),
         mapping = aes(x = x, y = y),
-        color = "red",
-        size = convert_pts_to_mm(0.8),
-        inherit.aes = FALSE),
+        inherit.aes = FALSE,
+        ##TODO: would prefer to remove he reference above...
+        # stat = "summary",  ##TODO: why doesn't this work?
+        # geom = "point",
+        # fun = "mean",
+        # mapping = aes(group = comparison),
+        # size = convert_pts_to_mm(0.8),
+        color = "red"
+      ),
       icer_txt = list(
         geom = "text",
         label =

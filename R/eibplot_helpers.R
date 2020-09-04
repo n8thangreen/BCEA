@@ -11,6 +11,7 @@ eib.plot.cri <- function(he,
       call. = FALSE)
     alpha <- 0.05
   }
+  
   margin <- 1
   if (he$n_comparison > 1)
     margin <- c(1, 3)
@@ -23,13 +24,14 @@ eib.plot.cri <- function(he,
                 ifelse(cri.quantile,
                        quantile(x, (alpha) / 2),
                        mean(x) - qnorm((alpha) / 2) * sd(x)))),
-    "upp" = c(apply(he$ib, margin,
-                    function(x)
-                      ifelse(
-                        cri.quantile,
-                        quantile(x, 1 - (alpha) / 2),
-                        mean(x) - qnorm(1 - (alpha) / 2) * sd(x)
-                      ))),
+    "upp" =
+      c(apply(he$ib, margin,
+              function(x)
+                ifelse(
+                  cri.quantile,
+                  quantile(x, 1 - (alpha) / 2),
+                  mean(x) - qnorm(1 - (alpha) / 2) * sd(x)
+                ))),
     "comp" = as.factor(
       rep(1:he$n_comparison, each = length(he$k)))
   )

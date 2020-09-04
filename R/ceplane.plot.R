@@ -6,11 +6,6 @@
 #' threshold.
 #' 
 #' @template args-he
-#' 
-#' @param comparison Selects the comparator, in case of more than two
-#'   interventions being analysed. Default as \code{NULL} plots all the
-#'   comparisons together. Any subset of the possible comparisons can be selected
-#'   (e.g., \code{comparison = c(1,3)} or \code{comparison = 2}).
 #' @param wtp The value of the willingness to pay parameter. Not used if
 #'   \code{graph = "base"} for multiple comparisons.
 #' @param pos Parameter to set the position of the legend; for a single
@@ -81,7 +76,7 @@
 #' ceplane.plot(m, wtp = 200, graph = "base")
 #' 
 #' ## select only one comparator
-#' ceplane.plot(m, wtp = 200, graph = "base", comparison = 3)
+#' ceplane.plot(m, wtp = 200, graph = "base")
 #' 
 #' ## or use ggplot2 instead
 #' if (requireNamespace("ggplot2")) {
@@ -91,7 +86,6 @@
 #' @export
 #' 
 ceplane.plot.bcea <- function(he,
-                              comparison = NULL,
                               wtp = 25000,
                               pos = c(0, 1),
                               graph = c("base", "ggplot2"),
@@ -99,7 +93,7 @@ ceplane.plot.bcea <- function(he,
   
   graph <- match.arg(graph)
   
-  he <- subset_by_comparisons(he, comparison)
+  # he <- subset_by_comparisons(he, comparison)
   
   graph_params <- prep_ceplane_params(he, wtp, ...)
   

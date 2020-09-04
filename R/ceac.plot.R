@@ -23,8 +23,6 @@
 #' @rdname plot-bcea
 #' 
 #' @template args-he
-#' @template args-comparison
-#' 
 #' @param pos Parameter to set the position of the legend (only relevant for
 #'   multiple interventions, ie more than 2 interventions being compared). Can be
 #'   given in form of a string \code{(bottom|top)(right|left)} for base graphics
@@ -77,8 +75,12 @@
 #' ceac.plot(he, graph = "ggplot2")
 #' ceac.plot(he, graph = "plotly")
 #' 
-#' ceac.plot(he, graph = "ggplot2", title = "my title", line = list(colors = "green"), theme = theme_dark())
-#
+#' ceac.plot(he,
+#'           graph = "ggplot2",
+#'           title = "my title",
+#'           line = list(colors = "green"),
+#'           theme = theme_dark())
+#'
 #' he2 <- BCEA::bcea(cbind(e,e - 0.0002), cbind(c,c + 5))
 #' mypalette <- RColorBrewer::brewer.pal(3, "Accent")
 #' ceac.plot(he2, graph = "ggplot2",
@@ -86,9 +88,12 @@
 #'           theme = theme_dark(),
 #'           pos = TRUE,
 #'           line = list(colors = mypalette))
-#
-#' ceac.plot(he, graph = "base", title = "my title", line = list(colors = "green"))
-#
+#'
+#' ceac.plot(he,
+#'           graph = "base",
+#'           title = "my title",
+#'           line = list(colors = "green"))
+#'
 #' ceac.plot(he2, graph = "base")
 #'
 ceac.plot.bcea <- function(he,
@@ -98,7 +103,7 @@ ceac.plot.bcea <- function(he,
   
   graph <- match.arg(graph)
   
-  graph_params <- prepare_ceac_params(...)
+  graph_params <- prep_ceac_params(...)
   
   if (is_baseplot(graph)) {
     
