@@ -65,7 +65,6 @@ summary.bcea <- function(he,
     }
   }
   
-  ##TODO: why doesnt bcea dispatch work??
   Table <- sim_table.bcea(he)$Table
   
   EU_tab <- matrix(NA, he$n_comparators, 1)
@@ -76,12 +75,14 @@ summary.bcea <- function(he,
   
   comp_tab <- matrix(NA, he$n_comparisons, 3)
   comp_tab[, 1] <-
-    Table[he$n_sim + 1, paste0("IB", he$ref, "_", he$comp)]
+    unlist(Table[he$n_sim + 1, paste0("IB", he$ref, "_", he$comp)])
+  
   if (he$n_comparisons == 1) {
     comp_tab[, 2] <-
       sum(Table[1:he$n_sim, paste0("IB", he$ref, "_", he$comp)] > 0) / he$n_sim
     comp_tab[, 3] <- he$ICER
   }
+  
   if (he$n_comparisons > 1) {
     for (i in 1:he$n_comparisons) {
       comp_tab[i, 2] <-
@@ -89,6 +90,7 @@ summary.bcea <- function(he,
       comp_tab[i, 3] <- he$ICER[i]
     }
   }
+  
   colnames(comp_tab) <- c("EIB", "CEAC", "ICER")
   rownames(comp_tab) <-
     paste0(he$interventions[he$ref], " vs ", he$interventions[he$comp])
