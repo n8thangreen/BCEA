@@ -1,7 +1,7 @@
 
-#' Default function
+#' bcea default function
 #'
-#' Compute a Bayesian cost-effectiveness analysis of two or more interv_names
+#' Compute a Bayesian cost-effectiveness analysis of two or more interv_names.
 #'
 #' INPUTS:
 #' 1. Two objects (`e`,`c`). These can be directly computed in a simulation object `sim` from JAGS/BUGS, 

@@ -1,16 +1,13 @@
 
-eib_plot_ggplot <- function() {
+#' eib_plot_ggplot
+#'
+#' @export
+#' 
+eib_plot_ggplot <- function(he,
+                            wtp,
+                            pos_legend,
+                            graph_params) {
  
-  if(!isTRUE(requireNamespace("ggplot2", quietly = TRUE) &
-             requireNamespace("grid", quietly = TRUE))) {
-    message("falling back to base graphics\n")
-    eib.plot(he, pos = alt.legend, graph = "base")
-    return(invisible(NULL))
-  }
-  
-  ### no visible binding note
-  k <- kstar <- low <- upp <- NA_real_
-  
   if(is.null(size))
     size <- rel(3.5)
   
@@ -149,34 +146,6 @@ eib_plot_ggplot <- function() {
                   colour = plot_aes$line$cri_colors,
                   show.legend = FALSE)
     }
-  } else if (he$n_comparisons > 1 & !is.null(comparison)) {
-    # adjusts bcea object for the correct number of dimensions and comparators
-    he$comp <- he$comp[comparison]
-    he$delta_e <- he$delta_e[, comparison]
-    he$delta_c <- he$delta_c[, comparison]
-    he$n_comparators <- length(comparison)+1
-    he$n_comparisons <- length(comparison)
-    he$interventions <- he$interventions[sort(c(he$ref, he$comp))]
-    he$ICER <- he$ICER[comparison]
-    he$ib <- he$ib[, , comparison]
-    he$eib <- he$eib[, comparison]
-    he$U <- he$U[, , sort(c(he$ref, comparison + 1))]
-    he$ceac <- he$ceac[, comparison]
-    he$ref <- rank(c(he$ref, he$comp))[1]
-    he$comp <- rank(c(he$ref, he$comp))[-1]
-    he$change_comp <- TRUE
-    
-    return(
-      eib.plot(
-        he,
-        pos = alt.legend,
-        graph = "ggplot2",
-        size = size,
-        comparison = NULL,
-        plot.cri = plot.cri,
-        alpha = alpha,
-        cri.quantile = cri.quantile,
-        ...))
   }
   
   eib <- eib + 

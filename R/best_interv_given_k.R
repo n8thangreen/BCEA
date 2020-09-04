@@ -7,7 +7,9 @@
 #' @export
 #'
 #' @examples
-#' 
+#' data(Vaccine)
+#' he <- bcea(e,c)
+#'  
 best_interv_given_k <- function(eib,
                                 ref,
                                 comp) {

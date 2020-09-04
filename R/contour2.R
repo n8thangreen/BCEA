@@ -42,7 +42,6 @@
 #' @import ggplot2
 #' 
 #' @examples
-#' 
 #' ## create the bcea object m for the smoking cessation example
 #' data(Smoking)
 #' m <- bcea(e, c, ref = 4, interventions = treats, Kmax = 500)

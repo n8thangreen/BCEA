@@ -53,6 +53,7 @@
 #' @export
 #'
 #' @examples
+#' ##TBD
 #' 
 .evppi2stage <- function(phi,
                          phi.name,

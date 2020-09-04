@@ -11,7 +11,9 @@
 #' @export
 #'
 #' @examples
-#' 
+#' data(Vaccine)
+#' he <- bcea(e,c)
+#'  
 compute_ICER <- function(df_ce) {
   
   df_ce %>%

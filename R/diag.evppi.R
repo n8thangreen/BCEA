@@ -1,5 +1,5 @@
 
-#' Diagnostic plots for the results of the EVPPI
+#' Diagnostic Plots for the Results of the EVPPI
 #' 
 #' The function produces either a residual plot comparing the fitted
 #' values from the INLA-SPDE Gaussian Process regression to the residuals.
@@ -35,18 +35,20 @@
 #' 
 #' @author Gianluca Baio, Anna Heath
 #' @seealso \code{\link{bcea}}, \code{\link{evppi}}
-#' @references Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity
+#' @references
+#' Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity
 #' Analysis in Health Economics.  Statistical Methods in Medical Research
 #' doi:10.1177/0962280211419832.
 #' 
-#' Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall,
-#' London
+#' Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall, London.
 #' @keywords Health economic evaluation, Value of Information
 #' 
 #' @export
 #' 
 #' @examples
-#'  
+#' data(Vaccine)
+#' he <- bcea(e,c)
+#' 
 diag.evppi <- function(evppi,
                        he,
                        plot_type = c("residuals", "qqplot"),

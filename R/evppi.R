@@ -133,7 +133,6 @@
 #' 
 #' @keywords Health economic evaluation Expected value of partial information
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'

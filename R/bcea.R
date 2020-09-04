@@ -81,16 +81,14 @@
 #' @author Gianluca Baio, Andrea Berardi
 #' @references
 #' Baio, G., Dawid, A. P. (2011). Probabilistic Sensitivity Analysis in
-#' Health Economics.  Statistical Methods in Medical Research.
+#' Health Economics. Statistical Methods in Medical Research.
 #' doi:10.1177/0962280211419832.
 #' 
-#' Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall,
-#' London
+#' Baio G. (2012). Bayesian Methods in Health Economics. CRC/Chapman Hall, London.
 #' @keywords manip Health economic evaluation
 #' @import dplyr
 #' 
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'
@@ -208,4 +206,4 @@
 #' @export
 #' 
 bcea <- function(e, c, ref = 1, interventions = NULL, Kmax = 50000, wtp = NULL, plot = FALSE)
-  UseMethod("bcea")
+  UseMethod("bcea", e)

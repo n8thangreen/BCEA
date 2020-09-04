@@ -42,16 +42,16 @@
 #' @importFrom rmarkdown render
 #' @importFrom withr with_options
 #' @importFrom knitr opts_knit
-#' 
-#' @export
-#' 
+#'
 #' @examples
+#' #' data(Vaccine)
+#' he <- bcea(e,c)
 #' 
-#' \dontrun {
-#'   data(Vaccine)
-#'   m <- bcea(e, c, ref = 2)
+#' \dontrun{
 #'   make.report(m)
 #' }
+#' 
+#' @export
 #' 
 make.report = function(he,
                        evppi = NULL,
@@ -61,13 +61,15 @@ make.report = function(he,
   
   # check if knitr installed (and if not, asks for it)
   if(!isTRUE(requireNamespace("knitr", quietly = TRUE))) {
-    stop("You need to install the R package 'knitr'. Please run in your R terminal:\n install.packages('knitr')", call. = FALSE)
+    stop("You need to install the R package 'knitr'.
+         Please run in your R terminal:\n install.packages('knitr')", call. = FALSE)
   }
   knitr::opts_knit$set(progress = FALSE, verbose = FALSE)
   
   # check if rmarkdown installed (and if not, asks for it)
   if(!isTRUE(requireNamespace("rmarkdown", quietly = TRUE))) {
-    stop("You need to install the R package 'rmarkdown'. Please run in your R terminal:\n install.packages('rmarkdown')", call. = FALSE)
+    stop("You need to install the R package 'rmarkdown'.
+         Please run in your R terminal:\n install.packages('rmarkdown')", call. = FALSE)
   }
   
   extra_args <- list(...)
@@ -127,11 +129,11 @@ make.report = function(he,
 
 #' allow to disable the cat messages
 #' 
-quiet <- function(x) { 
+quiet <- function(x) {
   sink(tempfile()) 
   on.exit(sink()) 
   invisible(force(x)) 
-} 
+}
 
 #' automatically open pdf output using default pdf viewer
 #' 

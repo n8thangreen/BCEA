@@ -59,7 +59,6 @@
 #' London
 #' @keywords Health economic evaluation Mixed analysis
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'

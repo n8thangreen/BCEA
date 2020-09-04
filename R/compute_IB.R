@@ -24,7 +24,9 @@
 #' @seealso \code{\link{compute_EIB}}
 #'
 #' @examples
-#' 
+#' data(Vaccine)
+#' he <- bcea(e,c)
+#'  
 compute_IB <- function(df_ce, k) {
     
   sims <- unique(df_ce$sim)

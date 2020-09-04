@@ -3,15 +3,17 @@
 #'
 #' In ggplot format, combine user supplied with defaults.
 #'
-#' @param he 
-#' @param wtp
-#' @param ... 
+#' @template args-he 
+#' @param wtp Willingness-to-pay
+#' @param ... Extra arguments
 #'
-#' @return
+#' @return List
 #' @export
 #'
 #' @examples
-#' 
+#' data(Vaccine)
+#' he <- bcea(e,c)
+#'  
 prep_ceplane_params <- function(he, wtp, ...) {
   
   graph_params <- list(...)

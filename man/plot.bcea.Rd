@@ -38,7 +38,7 @@ plotting. Should (partial-)match the two options \code{"base"} or
 
 \item{...}{Arguments to be passed to the methods \code{\link{ceplane.plot}}
 and \code{\link{eib.plot}}. Please see the manual pages for the individual
-functions.  Arguments like \code{size}, \code{ICER.size} and \code{plot.cri}
+functions. Arguments like \code{size}, \code{ICER.size} and \code{plot.cri}
 can be supplied to the functions in this way. In addition if
 \code{graph="ggplot2"} and the arguments are named theme objects they will
 be added to each plot.}

@@ -1,5 +1,12 @@
 
-eib_plot_plotly <- function() {
+#' eib_plot_plotly
+#'
+#' @export
+#' 
+eib_plot_plotly <- function(he,
+                            wtp,
+                            pos_legend,
+                            graph_params) {
  
   if (!is.null(size) && !is.na(size)) {
     message("Option size will be ignored using plotly.")

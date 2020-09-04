@@ -13,7 +13,7 @@
 #' 
 #' @keywords hplot
 #'
-#' @example
+#' @examples
 #' 
 #' data(Vaccine)
 #' he <- bcea(e, c)

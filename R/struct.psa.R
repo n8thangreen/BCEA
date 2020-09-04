@@ -41,7 +41,8 @@
 #' @export
 #' 
 #' @examples
-#' 
+#' ##TBD
+#'  
 struct.psa <- function(models,
                        effect,
                        cost,

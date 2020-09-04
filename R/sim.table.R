@@ -1,5 +1,6 @@
 
-#
+#' @export
+#' 
 sim_table <- function(he, ...) UseMethod("sim_table", he)
 
 
@@ -33,7 +34,6 @@ sim_table <- function(he, ...) UseMethod("sim_table", he)
 #' @import dplyr
 #' 
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'
@@ -110,8 +110,8 @@ sim_table.bcea <- function(he,
 }
 
 
-#
-sim_table.default <- function(he, ..) {
+#'
+sim_table.default <- function(he, ...) {
   
   stop("No method for this object. Run bcea().", call. = FALSE)
 }

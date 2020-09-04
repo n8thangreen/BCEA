@@ -11,11 +11,11 @@
 #' for computational reasons rather than to aid fit.
 #' You can still plot the INLA mesh elements but not output the meshes.
 #' 
-#' @param param_idx 
+#' @param param_idx Parameter index
 #' @param input 
 #' @template args-he 
-#' @param N 
-#' @param plot 
+#' @param N Default NULL
+#' @param plot TRUE or FALSE
 #' @param residuals 
 #' @param ... 
 #'
@@ -23,6 +23,8 @@
 #' @export
 #'
 #' @examples
+#' data(Vaccine)
+#' he <- bcea(e,c)
 #' 
 evppi.default <- function(param_idx,
                           input,

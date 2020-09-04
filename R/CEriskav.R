@@ -51,7 +51,6 @@
 #' 
 #' @keywords Health economic evaluation Risk aversion
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'

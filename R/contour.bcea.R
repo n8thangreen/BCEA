@@ -4,7 +4,7 @@
 #' Contour method for objects in the class \code{bcea}.
 #' Produces a scatterplot of the cost-effectiveness plane, with a contour-plot
 #' of the bivariate density of the differentials of cost (y-axis) and
-#' effectiveness (x-axis)
+#' effectiveness (x-axis).
 #' 
 #' @template args-he
 #' @param comparison In case of more than 2 interventions being analysed,
@@ -57,7 +57,8 @@
 #' @export
 #' 
 #' @examples
-#' ##TODO:...
+#' data(Vaccine)
+#' he <- bcea(e,c)
 #' 
 contour.bcea <-
   function(he,

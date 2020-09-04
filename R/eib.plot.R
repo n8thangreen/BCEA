@@ -65,6 +65,8 @@
 #' @importFrom grid unit
 #' @export
 #' 
+#' @example
+#' 
 eib.plot <- function(he,
                      pos = c(1, 0),
                      size = NULL,

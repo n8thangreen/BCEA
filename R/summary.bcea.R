@@ -2,7 +2,7 @@
 #' Summary Method for Objects of Class \code{bcea}
 #' 
 #' Produces a table printout with some summary results of the health economic
-#' evaluation
+#' evaluation.
 #' 
 #' @template args-he
 #' @param wtp The value of the willingness to pay threshold to be used in the
@@ -25,7 +25,6 @@
 #' @export
 #' 
 #' @examples 
-#' 
 #' data(Vaccine)
 #' 
 #  he <- bcea(e,c, interventions = treats, ref = 2)

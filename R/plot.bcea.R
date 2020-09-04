@@ -25,7 +25,7 @@
 #' \code{"ggplot2"}. Default value is \code{"base"}.
 #' @param ...  Arguments to be passed to the methods \code{\link{ceplane.plot}}
 #' and \code{\link{eib.plot}}. Please see the manual pages for the individual
-#' functions.  Arguments like \code{size}, \code{ICER.size} and \code{plot.cri}
+#' functions. Arguments like \code{size}, \code{ICER.size} and \code{plot.cri}
 #' can be supplied to the functions in this way. In addition if
 #' \code{graph="ggplot2"} and the arguments are named theme objects they will
 #' be added to each plot.
@@ -50,7 +50,6 @@
 #' @keywords Health economic evaluation
 #' 
 #' @examples
-#' 
 #' # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 #' # Bayesian model and economic problem
 #'
