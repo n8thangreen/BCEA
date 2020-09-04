@@ -1,7 +1,7 @@
 
 #' prep_eib_plot_params
 #' 
-#' @param he 
+#' @template args-he 
 #' @param ... 
 #'
 #' @keywords dplot
@@ -52,15 +52,25 @@ prep_eib_plot_params <- function(he, ...) {
   
   default_params <-
     list(title = FALSE,
-         xlab = FALSE,
-         ylab = FALSE,
+         xlab = "Willingness to pay",
+         ylab = "EIB",
+         main = paste0("Expected Incremental Benefit",
+                       ifelse(
+                         plot.cri,
+                         paste0("\nand ", format((1 - alpha)*100, digits = 4), "% credible intervals"),
+                         "")),
+         size = NULL,
+         xlim = range(he$k),
          ylim = range(c(he$eib), cri$low, cri$upp, na.rm = TRUE),
          area = list(include = FALSE,
                      color = "grey"),
          line =
            list(colors = "black",
                 types = NULL,
-                cri_colors = "grey50"))
+                cri_colors = "grey50",
+                types = 1:he$n_comparisons),
+         lwd = ifelse(he$n_comparisons > 6, 1.5, 1))
+  
   
   ext_params <- list(area = area_params,
                      line = line_params)
