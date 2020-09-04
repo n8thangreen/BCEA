@@ -23,4 +23,3 @@ subset_by_comparisons <- function(he, comparison) {
   return(he)
 }
 
-

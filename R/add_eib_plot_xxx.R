@@ -9,33 +9,34 @@ add_eib_line <- function(graph_params) {
   
   lines(he$k,
         he$eib,
-        col = plot_aes$line$colors[1],
-        lty = ifelse(is.null(plot_aes$line$types), 1, plot_aes$line$types[1]))
+        col = graph_params$line$colors[1],
+        lty = ifelse(is.null(graph_params$line$types), 1, graph_params$line$types[1]))
   
   lines(he$k, he$eib[,j],
-        lty = plot_aes$line$types[min(j, length(plot_aes$line$types))], 
+        lty = graph_params$line$types[min(j, length(graph_params$line$types))], 
         lwd = ifelse(plot.cri, lwd + 1, lwd), 
-        col = plot_aes$line$colors[min(j, length(plot_aes$line$colors))])
+        col = graph_params$line$colors[min(j, length(graph_params$line$colors))])
 }
 
 #'
 add_cri <- function(graph_params) {
   
   if (plot.cri) {
-    lines(he$k, cri$low, col = plot_aes$line$cri_colors[1], lty = 2)
-    lines(he$k, cri$upp, col = plot_aes$line$cri_colors[1], lty = 2)
+    ##TODO: matplot?
+    lines(he$k, cri$low, col = graph_params$line$cri_colors[1], lty = 2)
+    lines(he$k, cri$upp, col = graph_params$line$cri_colors[1], lty = 2)
   }
   
   lines(he$k,
         cri$low[cri$comp == j],
         lwd = lwd, 
-        col = plot_aes$line$cri_colors[min(j, length(plot_aes$line$cri_colors))],
-        lty = plot_aes$line$types[min(j, length(plot_aes$line$types))])
+        col = graph_params$line$cri_colors[min(j, length(graph_params$line$cri_colors))],
+        lty = graph_params$line$types[min(j, length(graph_params$line$types))])
   lines(he$k,
         cri$upp[cri$comp == j],
         lwd = lwd, 
-        col = plot_aes$line$cri_colors[min(j, length(plot_aes$line$cri_colors))],
-        lty = plot_aes$line$types[min(j, length(plot_aes$line$types))])
+        col = graph_params$line$cri_colors[min(j, length(graph_params$line$cri_colors))],
+        lty = graph_params$line$types[min(j, length(graph_params$line$types))])
 }
 
 #'
