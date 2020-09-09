@@ -7,7 +7,8 @@
 prep_eib_plot_params(he, ...)
 }
 \arguments{
-\item{he}{}
+\item{he}{A \code{bcea} object containing the results of the Bayesian
+modelling and the economic evaluation.}
 
 \item{...}{}
 }

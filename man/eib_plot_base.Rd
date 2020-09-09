@@ -10,11 +10,14 @@ eib_plot_base(he, wtp, pos_legend, graph_params)
 \item{he}{A \code{bcea} object containing the results of the Bayesian
 modelling and the economic evaluation.}
 
-\item{wtp}{}
+\item{wtp}{Willingness-to-pay}
 
-\item{pos_legend}{}
+\item{pos_legend}{Position of legend}
 
-\item{graph_params}{}
+\item{graph_params}{List}
+}
+\value{
+
 }
 \description{
 eib_plot_base
