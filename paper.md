@@ -6,7 +6,7 @@ tags:
   - health economics
   - cost-effectiveness
 authors:
-  - name: Nathan Green^[corresponding author] # note this makes a footnote saying 'co-first author'
+  - name: Nathan Green^[Corresponding author]
     orcid: 0000-0003-2745-1736
     affiliation: 1 # (Multiple affiliations must be quoted)
   - name: Anna Heath
