@@ -10,7 +10,7 @@
 
 @book{Baio2017,
 abstract = {The book provides a description of the process of health economic evaluation and modelling for cost-effectiveness analysis, particularly from the perspective of a Bayesian statistical approach. Some relevant theory and introductory concepts are presented using practical examples and two running case studies. The book also describes in detail how to perform health economic evaluations using the R package BCEA (Bayesian Cost-Effectiveness Analysis). BCEA can be used to post-process the results of a Bayesian cost-effectiveness model and perform advanced analyses producing standardised and highly customisable outputs. It presents all the features of the package, including its many functions and their practical application, as well as its user-friendly web interface. The book is a valuable resource for statisticians and practitioners working in the field of health economics wanting to simplify and standardise their workflow, for example in the preparation of dossiers in support of marketing authorisation, or academic and scientific publications.},
-author = {Baio, G., Berardi, A., & Heath, A.},
+author = {{Baio}, G. and {Berardi}, A. and {Heath}, A.},
 publisher = {Springer International Publishing},
 title = {{Bayesian Cost-Effectiveness Analysis with the R package BCEA}},
 url = {https://www.springer.com/gp/book/9783319557168},
@@ -21,7 +21,7 @@ year = {2017}
 abstract = {Health economic models simulate the costs and effects of health technologies for use in health technology assessment (HTA) to inform efficient use of scarce resources. Models have historically been developed using spreadsheet software (e.g., Microsoft Excel) and while use of R is growing, general purpose modeling software is still limited. hesim is an R package that helps fill this gap by facilitating parameterization, simulation, and analysis of economic models in an integrated manner. Supported model types include cohort discrete time state transition models (cDTSTMs), individual continuous time state transition models (iCTSTMs), and partitioned survival models (PSMs), encompassing Markov (time-homogeneous and time-inhomogeneous) and semi-Markov processes. A modular design based on R6 and S3 classes allows users to combine separate submodels for disease progression, costs, and utility in a flexible way. Probabilistic sensitivity analysis (PSA) is used to propagate uncertainty in model parameters to model outputs. Simulation code is written in C++ so complex simulations such as those combining PSA and individual simulation can be run much more quickly than previously possible. Decision analysis within a cost-effectiveness framework is performed using simulated costs and quality-adjusted life years (QALYs) from a PSA.},
 archivePrefix = {arXiv},
 arxivId = {2102.09437},
-author = {Incerti, D., & Jansen, J. P.},
+author = {{Incerti}, D. and {Jansen}, J.~P.},
 eprint = {2102.09437},
 file = {:C\:/Users/Nathan/Documents/docs/2102.09437.pdf:pdf},
 keywords = {cost-effectiveness analysis,health economic evaluation,multi-state,simulation},
@@ -34,7 +34,7 @@ year = {2021}
 abstract = {Health economic evaluation studies are widely used in public health to assess health strategies in terms of their cost-effectiveness and inform public policies. We developed an R package for Markov models implementing most of the modelling and reporting features described in reference textbooks and guidelines: deterministic and probabilistic sensitivity analysis, heterogeneity analysis, time dependency on state-time and model-time (semi-Markov and non-homogeneous Markov models), etc. In this paper we illustrate the features of heemod by building and analysing an example Markov model. We then explain the design and the underlying implementation of the package.},
 archivePrefix = {arXiv},
 arxivId = {1702.03252},
-author = {Filipovi{\'{c}}-Pierucci, A., Zarca, K., & Durand-Zaleski, I.},
+author = {{Filipovi{\'{c}}-Pierucci}, A. and {Zarca}, K. and {Durand-Zaleski}, I.},
 eprint = {1702.03252},
 file = {:C\:/Users/Nathan/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Filipovi{\'{c}}-Pierucci, Zarca, Durand-Zaleski - 2017 - Markov Models for Health Economic Evaluations The R Package heemod.pdf:pdf},
 keywords = {health economic evaluation,markov models,r},
@@ -46,7 +46,7 @@ year = {2017}
 }
 
 @article{Baio:2013,
-	author = {Baio, G.},
+	author = {{Baio}, G.},
 	title = {{Bayesian models for cost-effectiveness analysis in the presence of structural zero costs}},
 	journal = {Statistics in Medicine},
 	year = {2013},
@@ -56,7 +56,7 @@ year = {2017}
 
 @article{Alarid-Escudero2019a,
 abstract = {The use of open-source programming languages, such as R, in health decision sciences is growing and has the potential to facilitate model transparency, reproducibility, and shareability. However, realizing this potential can be challenging. Models are complex and primarily built to answer a research question, with model sharing and transparency relegated to being secondary goals. Consequently, code is often neither well documented nor systematically organized in a comprehensible and shareable approach. Moreover, many decision modelers are not formally trained in computer programming and may lack good coding practices, further compounding the problem of model transparency. To address these challenges, we propose a high-level framework for model-based decision and cost-effectiveness analyses (CEA) in R. The proposed framework consists of a conceptual, modular structure and coding recommendations for the implementation of model-based decision analyses in R. This framework defines a set of common decision model elements divided into five components: (1) model inputs, (2) decision model implementation, (3) model calibration, (4) model validation, and (5) analysis. The first four components form the model development phase. The analysis component is the application of the fully developed decision model to answer the policy or the research question of interest, assess decision uncertainty, and/or to determine the value of future research through value of information (VOI) analysis. In this framework, we also make recommendations for good coding practices specific to decision modeling, such as file organization and variable naming conventions. We showcase the framework through a fully functional, testbed decision model, which is hosted on GitHub for free download and easy adaptation to other applications. The use of this framework in decision modeling will improve code readability and model sharing, paving the way to an ideal, open-source world.},
-author = {Alarid-Escudero, F., Krijkamp, E. M., Pechlivanoglou, P., Jalal, H., Kao, S., Yu, Z., Yang, A., & Enns, E. A.},
+author = {{Alarid-Escudero}, F. and {Krijkamp}, E.~M. and {Pechlivanoglou}, P. and {Jalal}, H. and {Kao}, S. and {Yu}, Z. and {Yang}, A. and {Enns}, E.~A.},
 doi = {10.1007/s40273-019-00837-x},
 file = {:C\:/Users/n8tha/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Alarid-Escudero et al. - 2019 - A Need for Change! A Coding Framework for Improving Transparency in Decision Modeling.pdf:pdf},
 isbn = {4027301900},
@@ -74,7 +74,7 @@ year = {2019}
 
 @article{Krijkamp2018,
 abstract = {Microsimulation models are becoming increasingly common in the field of decision modeling for health. Because microsimulation models are computationally more demanding than traditional Markov cohort models, the use of computer programming languages in their development has become more common. R is a programming language that has gained recognition within the field of decision modeling. It has the capacity to perform microsimulation models more efficiently than software commonly used for decision modeling, incorporate statistical analyses within decision models, and produce more transparent models and reproducible results. However, no clear guidance for the implementation of microsimulation models in R exists. In this tutorial, we provide a step-by-step guide to build microsimulation models in R and illustrate the use of this guide on a simple, but transferable, hypothetical decision problem. We guide the reader through the necessary steps and provide generic R code that is flexible and can be adapted for other models. We also show how this code can be extended to address more complex model structures and provide an efficient microsimulation approach that relies on vectorization solutions. Healthcare policy makers are often faced with decisions on how to allocate healthcare resources given constrained budgets and the continuous development of new, expensive technologies. Policy makers increasingly rely on health decision modeling tools to guide their decisions, as such models can synthesize evidence from different sources to give indications on the long-term implications and the uncertainty around a decision. 1 One of the most common types of decision models used is that of state-transition cohort models. 2,3 Cohort models investigate a hypothetical homogeneous cohort of individuals as they transition across health states. In a deterministic cohort model, the result is precisely determined given a set of initial conditions and parameters. As the complexity of decisions increases, deterministic cohort models become inadequate in reflecting the decision problem, and more complex models are needed. For example, an assumption commonly made in cohort},
-author = {Krijkamp, E. M., Alarid-Escudero, F., Enns, E. A., Jalal, H. J., Hunink, M. G., & Pechlivanoglou, P.},
+author = {{Krijkamp}, E.~M. and {Alarid-Escudero}, F. and {Enns}, E.~A. and {Jalal}, H.~J. and {Hunink}, M.~G. and {Pechlivanoglou}, P.},
 doi = {10.1177/0272989X18754513},
 file = {:C\:/Users/n8tha/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Krijkamp et al. - 2018 - Microsimulation Modeling for Health Decision Sciences Using R A Tutorial(2).pdf:pdf},
 isbn = {2059348242},
@@ -91,7 +91,7 @@ year = {2018}
 
 @article{Krijkamp2019,
 abstract = {Cost-effectiveness analyses often rely on cohort state-transition models (cSTMs). The cohort trace is the primary outcome of cSTMs, which captures the proportion of the cohort in each health state over time (state occupancy). However, the cohort trace is an aggregated measure that does not capture the information about the specific transitions among the health states (transition dynamics). In practice, these transition dynamics are crucial in many applications, such as incorporating transition rewards or computing various epidemiological outcomes that could be used for model calibration and validation (e.g. disease incidence and lifetime risk). In this manuscript we propose modifying the transitional cSTMs cohort trace computation to compute and store cSTMs dynamics that capture both state occupancy and transition dynamics. This approach produces a multidimensional matrix from which both the state occupancy and the transition dynamics can be recovered. We highlight the advantages and potential applications of this approach with an example coded in R to facilitate the implementation of our method.},
-author = {Krijkamp, E. M., Alarid-Escudero, F., Enns, E. A., Pechlivanoglou, P., Hunink, M. G., & Jalal, H. J.},
+author = {{Krijkamp}, E.~M. and {Alarid-Escudero}, F. and {Enns}, E.~A. and {Pechlivanoglou}, P. and {Hunink}, M.~G. and {Jalal}, H.~J.},
 doi = {10.1101/670612},
 file = {:C\:/Users/n8tha/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Krijkamp et al. - 2019 - A Multidimensional Array Representation of State-Transition Model Dynamics.pdf:pdf},
 journal = {bioRxiv},
@@ -104,8 +104,7 @@ year = {2019}
 
 @Misc{dampack2021,
   title = {Decision Analytic Modeling Package (dampack)},
-  author = {Fernando Alarid-Escudero and Greg Knowlton and Caleb
-    Easterly and Eva Enns},
+  author = {{Alarid-Escudero}, F. and {Knowlton}, G. and {Easterly}, C. and {Enns}, E.},
   year = {2021},
   note = {R package version 1.0.0},
   url = {https://github.com/DARTH-git/dampack},
