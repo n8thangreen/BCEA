@@ -46,7 +46,7 @@ Finally, \texttt{BCEA} has an expansive suite of functions from basic cost-effec
 
 The breadth of models used for CEA is wide and growing in complexity and applications (@Krijkamp2018, @Krijkamp2019), but their implementation and, in particular, post-processing of their output can (and should be) standardised (@Alarid-Escudero2019a). This has the benefit of greater reliability, facilitating assessment and reuse. Decoupling the modelling from the post-processing allows for flexibility in the CEA model but, as long as its output is in a standard format, then \texttt{BCEA} can be used. Thus, methodologies in CEA modelling can advance independent of the post-processing and presentation.
 
-For further, in-depth details about \texttt{BCEA} we encourage the package user to consult @Baio:2013 and @Baio2017.
+For further, in-depth details about \texttt{BCEA} we encourage the package user to consult @Baio:2014 and @Baio2017.
 
 
 # Acknowledgements
