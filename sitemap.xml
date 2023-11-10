@@ -157,9 +157,6 @@
     <loc>https://n8thangreen.github.io/BCEA/reference/compute_eib_cri.html</loc>
   </url>
   <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/compute_evppi.html</loc>
-  </url>
-  <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/compute_kstar.html</loc>
   </url>
   <url>
@@ -205,9 +202,6 @@
     <loc>https://n8thangreen.github.io/BCEA/reference/eib_plot_graph.html</loc>
   </url>
   <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/estimate.hyperparams.html</loc>
-  </url>
-  <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/evi.plot.html</loc>
   </url>
   <url>
@@ -227,15 +221,6 @@
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/evppi_residual_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/fit.gam.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/fit.gp.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/fit.inla.html</loc>
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/geom_cri.html</loc>
@@ -272,12 +257,6 @@
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/loo_rank.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/make.mesh.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/make.proj.html</loc>
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/make.report.html</loc>
@@ -319,15 +298,6 @@
     <loc>https://n8thangreen.github.io/BCEA/reference/plot_eib_cri.html</loc>
   </url>
   <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/plot_mesh.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/post.density.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/prep.x.html</loc>
-  </url>
-  <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/prep_ceplane_params.html</loc>
   </url>
   <url>
@@ -335,9 +305,6 @@
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/prep_frontier_data.html</loc>
-  </url>
-  <url>
-    <loc>https://n8thangreen.github.io/BCEA/reference/prepare.output.html</loc>
   </url>
   <url>
     <loc>https://n8thangreen.github.io/BCEA/reference/print.bcea.html</loc>
