@@ -91,22 +91,9 @@ modelling and the economic evaluation.</p></dd>
     
 
 <p>A data.frame object including mean outcomes, comparison identifier,
-comparison label and associated ICER</p>
+  comparison label and associated ICER</p>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="Smoking.html">data</a></span><span class="op">(</span><span class="st">"Smoking"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">he</span> <span class="op">&lt;-</span> <span class="fu">BCEA</span><span class="fu">::</span><span class="fu"><a href="bcea.html">bcea</a></span><span class="op">(</span><span class="va">eff</span>, <span class="va">cost</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No reference selected. Defaulting to first intervention.</span>
-<span class="r-in"><span><span class="fu">tabulate_means</span><span class="op">(</span><span class="va">he</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  lambda.e   lambda.c comparison label     ICER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> intervention 2 -0.2882396  -45.73316          1     1 158.6637</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> intervention 3 -0.4848577  -94.91904          2     2 195.7668</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> intervention 4 -0.7225198 -143.30076          3     3 198.3347</span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
