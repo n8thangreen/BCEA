@@ -72,6 +72,11 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.4.5" id="bcea-245">BCEA 2.4.5<a class="anchor" aria-label="anchor" href="#bcea-245"></a></h2>
 <p><em>November 2023</em></p>
+<p>Some cosmetic changes to clean up</p>
+<ul><li>Removed the (by now, unnecessary) appveyor webhook</li>
+<li>Added correct ‘Remotes’ in the ‘DESCRIPTION’ file to point to the correct GitHub repos for ‘voi’ and ‘plotrix’</li>
+<li>Changed the class of the object ‘smoking_output’ to be used in the ‘evppi’ example avoiding the need for ‘rjags’</li>
+</ul><p><em>October 2023</em></p>
 <p>Moved internal EVPPI calculation out of <code>BCEA</code> and now uses <code>voi</code> package instead. Refactoring but retaining same interface and functionality.</p>
 <ul><li>Ensure using latest CRAN release of <a href="https://chjackson.github.io/voi/" class="external-link">voi</a> which has a patch so that BCEA can use it without losing functionality
 <ul><li>Latest version of <a href="https://chjackson.github.io/voi/" class="external-link">voi</a> needed when we use <code>check = TRUE</code> in <code><a href="https://chjackson.github.io/voi/reference/evppi.html" class="external-link">voi::evppi()</a></code> in order to access fitting data (6e436b5, 94f5fc5)</li>
