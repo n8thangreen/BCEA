@@ -65,7 +65,8 @@
 <h2 class="pkg-version" data-toc-text="2.4.6" id="bcea-246">BCEA 2.4.6<a class="anchor" aria-label="anchor" href="#bcea-246"></a></h2>
 <p><em>February 2024</em></p>
 <p>Patch fixing small bugs from last CRAN release.</p>
-<ul><li>Converted help documentation in <code>man-roxygen</code> folder to md (cf858b1)</li>
+<ul><li>Moved <a href="https://chjackson.github.io/voi/" class="external-link">voi</a> package to Suggests in DESCRIPTION and added <code><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace()</a></code> in <code><a href="../reference/evppi.html">evppi()</a></code> to avoid error when not installed (e.g. on CRAN) (f3e3e3e)</li>
+<li>Converted help documentation in <code>man-roxygen</code> folder to md (cf858b1)</li>
 <li>bugfix: line width in CEAC plot. <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> changed in version 3 to <code>linewidth</code> from <code>size</code> argument and had only changed some of the code. Updated to <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_linewidth_manual()</a></code>. (60bea9c)</li>
 <li>Using <code>testdata</code> folder <a href="https://testthat.r-lib.org" class="external-link">testthat</a> unit tests. (cbce0fa)</li>
 </ul></div>
