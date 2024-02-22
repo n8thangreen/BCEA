@@ -309,6 +309,42 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>                            <span class="co">#  in a grid from the interval (0, Kmax)</span></span></span>
 <span class="r-in"><span>      plot<span class="op">=</span><span class="cn">TRUE</span>             <span class="co"># plots the results</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(x, comparison = comparison, wtp = wtp, pos = pos, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     graph = "base", ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
 <span class="r-plt img"><img src="bcea-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Creates a summary table</span></span></span>
@@ -350,6 +386,41 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>                     <span class="co">#  (default: 25,000) </span></span></span>
 <span class="r-in"><span>      graph<span class="op">=</span><span class="st">"base"</span>   <span class="co"># selects base graphics (default)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(m, comparison = 1, wtp = 25000, graph = "base")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
 <span class="r-plt img"><img src="bcea-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the cost-effectiveness plane using ggplot2</span></span></span>
@@ -374,6 +445,147 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>      opt.theme<span class="op">=</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text<span class="op">=</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(m, comparison = 1, wtp = 25000, graph = "ggplot2")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), by = c("sim", "comparison"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     label = if (plot_params$icer_annot) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         line_labels.default(he, ref_first = graph_params$ref_first)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     } else {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$legend)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(m, graph = "ggplot2", pos = "top", size = 5, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ICER_size = 1.5, label.pos = FALSE, opt.theme = ggplot2::theme(text = ggplot2::element_text(size = 8)))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), by = c("sim", "comparison"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     label = if (plot_params$icer_annot) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         line_labels.default(he, ref_first = graph_params$ref_first)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     } else {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$legend)</span>
 <span class="r-plt img"><img src="bcea-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the contour and scatterplot of the bivariate </span></span></span>
@@ -391,6 +603,29 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>                    <span class="co">#  y-axis (default=0.5)</span></span></span>
 <span class="r-in"><span>      graph<span class="op">=</span><span class="st">"base"</span>  <span class="co"># uses base graphics to produce the plot</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
 <span class="r-plt img"><img src="bcea-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the contour and scatterplot of the bivariate </span></span></span>
@@ -400,6 +635,65 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>                  <span class="co">#  (a "bcea" object)</span></span></span>
 <span class="r-in"><span>      wtp<span class="op">=</span><span class="fl">25000</span>,  <span class="co"># selects the willingness-to-pay threshold</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     graph = "base", ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
 <span class="r-plt img"><img src="bcea-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Using ggplot2</span></span></span>
@@ -412,6 +706,100 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>      label.pos<span class="op">=</span><span class="cn">FALSE</span> <span class="co"># alternative position for the wtp label</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     graph = "ggplot2", ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph &lt;- match.arg(graph)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: he &lt;- setComparisons(he, comparison)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: prep_ceplane_params(he, wtp, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: graph_params &lt;- list(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (!is.list(wtp_params)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: wtp_params &lt;- list(value = wtp_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     paste0(he$interventions[he$comp], collapse = ", "))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1, yes = intervs_in_title, no = ""))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     area = list(col = "grey95"), ref_first = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "\n")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp_value &lt;- out$wtp$value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out$wtp$value &lt;- NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: out</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_baseplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: if (is_ggplot(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } else if (is_plotly(graph)) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id.vars = "sim"), by = c("sim", "comparison"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     label = if (plot_params$icer_annot) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         line_labels.default(he, ref_first = graph_params$ref_first)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     } else {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     plot_params$legend)</span>
 <span class="r-plt img"><img src="bcea-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the Expected Incremental Benefit for the "bcea" object m</span></span></span>
