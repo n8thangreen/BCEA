@@ -116,56 +116,10 @@ function.</p>
 <p>The plot defaults to base R plotting. Type of plot can be set
 explicitly using the <code>graph</code> argument.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"base"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"base"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-3-2.png" width="576"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ceac.plot(he, graph = "plotly")</span></span></code></pre></div>
@@ -175,56 +129,10 @@ levels. The base R levels arguments are kept for back-compatibility and
 the <code>ggplot2</code> style arguments are used in the associated
 plot.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-4-2.png" width="576"></p>
 <p>Other plotting arguments can be specified such as title, line colour
 and thickness and type of point.</p>
@@ -233,222 +141,23 @@ and thickness and type of point.</p>
 <span>        graph <span class="op">=</span> <span class="st">"ggplot2"</span>,</span>
 <span>        title <span class="op">=</span> <span class="st">"my title"</span>,</span>
 <span>        point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, shape <span class="op">=</span> <span class="fl">2</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>,</span>
 <span>        graph <span class="op">=</span> <span class="st">"base"</span>,</span>
 <span>        title <span class="op">=</span> <span class="st">"my title"</span>,</span>
 <span>        point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, shape <span class="op">=</span> <span class="fl">2</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <p>Alternatively, the <code><a href="../reference/contour2.html">contour2()</a></code> function is essentially a
 wrapper for <code><a href="../reference/ceplane.plot.html">ceplane.plot()</a></code> with the addition of contour
 lines.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"base"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "base", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"base"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "ggplot2", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span></span>
-<span><span class="co">#&gt;     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span></span>
-<span><span class="co">#&gt;     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), by = c("sim", "comparison"))</span></span>
-<span><span class="co">#&gt; debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span></span>
-<span><span class="co">#&gt; debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span></span>
-<span><span class="co">#&gt;     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span></span>
-<span><span class="co">#&gt;     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span></span>
-<span><span class="co">#&gt;     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span></span>
-<span><span class="co">#&gt;     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span></span>
-<span><span class="co">#&gt;     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span></span>
-<span><span class="co">#&gt;     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span></span>
-<span><span class="co">#&gt;     label = if (plot_params$icer_annot) {</span></span>
-<span><span class="co">#&gt;         line_labels.default(he, ref_first = graph_params$ref_first)</span></span>
-<span><span class="co">#&gt;     } else {</span></span>
-<span><span class="co">#&gt;         ""</span></span>
-<span><span class="co">#&gt;     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span></span>
-<span><span class="co">#&gt;     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span></span>
-<span><span class="co">#&gt;     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span></span>
-<span><span class="co">#&gt;         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span></span>
-<span><span class="co">#&gt;     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span></span>
-<span><span class="co">#&gt;     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span></span>
-<span><span class="co">#&gt;     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span></span>
-<span><span class="co">#&gt;     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span></span>
-<span><span class="co">#&gt;     plot_params$legend)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-7-2.png" width="576"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ceac.plot(he, graph = "plotly")</span></span></code></pre></div>
@@ -459,167 +168,14 @@ above.</p>
 <span>         graph <span class="op">=</span> <span class="st">"ggplot2"</span>,</span>
 <span>         title <span class="op">=</span> <span class="st">"my title"</span>,</span>
 <span>         point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, shape <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "ggplot2", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span></span>
-<span><span class="co">#&gt;     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span></span>
-<span><span class="co">#&gt;     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), by = c("sim", "comparison"))</span></span>
-<span><span class="co">#&gt; debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span></span>
-<span><span class="co">#&gt; debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span></span>
-<span><span class="co">#&gt;     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span></span>
-<span><span class="co">#&gt;     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span></span>
-<span><span class="co">#&gt;     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span></span>
-<span><span class="co">#&gt;     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span></span>
-<span><span class="co">#&gt;     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span></span>
-<span><span class="co">#&gt;     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span></span>
-<span><span class="co">#&gt;     label = if (plot_params$icer_annot) {</span></span>
-<span><span class="co">#&gt;         line_labels.default(he, ref_first = graph_params$ref_first)</span></span>
-<span><span class="co">#&gt;     } else {</span></span>
-<span><span class="co">#&gt;         ""</span></span>
-<span><span class="co">#&gt;     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span></span>
-<span><span class="co">#&gt;     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span></span>
-<span><span class="co">#&gt;     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span></span>
-<span><span class="co">#&gt;         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span></span>
-<span><span class="co">#&gt;     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span></span>
-<span><span class="co">#&gt;     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span></span>
-<span><span class="co">#&gt;     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span></span>
-<span><span class="co">#&gt;     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span></span>
-<span><span class="co">#&gt;     plot_params$legend)</span></span></code></pre></div>
+<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-8-1.png" width="576"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>,</span>
 <span>         graph <span class="op">=</span> <span class="st">"base"</span>,</span>
 <span>         title <span class="op">=</span> <span class="st">"my title"</span>,</span>
 <span>         point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, shape <span class="op">=</span> <span class="fl">2</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
-<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "base", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span></code></pre></div>
+<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 </div>
 </div>
@@ -638,215 +194,31 @@ consider.</p>
 <p>Because there are multiple groups then the quadrant annotation is
 omitted.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-11-1.png" width="576"></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-11-2.png" width="576"></p>
 <p>The <code>scale</code> argument determines the smoothness of the
 contours.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, scale <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, scale <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-12-1.png" width="576"></p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, scale <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>  <span class="co">##TODO: what is the equivalent ggplot2 argument?</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, scale <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>  <span class="co">##TODO: what is the equivalent ggplot2 argument?</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-12-2.png" width="576"></p>
 <p>The quantiles or number of levels.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, nlevels <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, nlevels <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-13-2.png" width="576"></p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span>, contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-14-2.png" width="576"></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>,</span>
@@ -855,30 +227,7 @@ contours.</p>
 <span>        line <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>        point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"plum"</span>, <span class="st">"tomato"</span>, <span class="st">"springgreen"</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>        icer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>,</span>
@@ -887,191 +236,15 @@ contours.</p>
 <span>        line <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>        point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"plum"</span>, <span class="st">"tomato"</span>, <span class="st">"springgreen"</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>        icer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<span>        contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-16-1.png" width="576"></p>
 <p>Again, this applies to the <code><a href="../reference/contour2.html">contour2()</a></code> version of contour
 plot too.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, wtp <span class="op">=</span> <span class="fl">250</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "base", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, wtp <span class="op">=</span> <span class="fl">250</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-17-1.png" width="576"></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, wtp <span class="op">=</span> <span class="fl">250</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "ggplot2", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span></span>
-<span><span class="co">#&gt;     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span></span>
-<span><span class="co">#&gt;     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), by = c("sim", "comparison"))</span></span>
-<span><span class="co">#&gt; debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span></span>
-<span><span class="co">#&gt; debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span></span>
-<span><span class="co">#&gt;     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span></span>
-<span><span class="co">#&gt;     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span></span>
-<span><span class="co">#&gt;     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span></span>
-<span><span class="co">#&gt;     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span></span>
-<span><span class="co">#&gt;     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span></span>
-<span><span class="co">#&gt;     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span></span>
-<span><span class="co">#&gt;     label = if (plot_params$icer_annot) {</span></span>
-<span><span class="co">#&gt;         line_labels.default(he, ref_first = graph_params$ref_first)</span></span>
-<span><span class="co">#&gt;     } else {</span></span>
-<span><span class="co">#&gt;         ""</span></span>
-<span><span class="co">#&gt;     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span></span>
-<span><span class="co">#&gt;     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span></span>
-<span><span class="co">#&gt;     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span></span>
-<span><span class="co">#&gt;         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span></span>
-<span><span class="co">#&gt;     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span></span>
-<span><span class="co">#&gt;     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span></span>
-<span><span class="co">#&gt;     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span></span>
-<span><span class="co">#&gt;     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span></span>
-<span><span class="co">#&gt;     plot_params$legend)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, wtp <span class="op">=</span> <span class="fl">250</span>, graph <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-17-2.png" width="576"></p>
 <p>The styling of the plot for multiple comparisons can specifically
 change the colour and point type for each comparison.</p>
@@ -1082,101 +255,7 @@ change the colour and point type for each comparison.</p>
 <span>         line <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>         point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"plum"</span>, <span class="st">"tomato"</span>, <span class="st">"springgreen"</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>         icer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "ggplot2", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; Called from: ceplane_plot_ggplot.bcea(he, pos_legend = pos, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: delta_ce &lt;- merge(melt(cbind(sim = seq_len(nrow(he$delta_c)), </span></span>
-<span><span class="co">#&gt;     he$delta_c), variable.name = "comparison", value.name = "delta_c", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), melt(cbind(sim = seq_len(nrow(he$delta_e)), </span></span>
-<span><span class="co">#&gt;     he$delta_e), variable.name = "comparison", value.name = "delta_e", </span></span>
-<span><span class="co">#&gt;     id.vars = "sim"), by = c("sim", "comparison"))</span></span>
-<span><span class="co">#&gt; debug: plot_params &lt;- ceplane_ggplot_params(he, pos_legend, graph_params, </span></span>
-<span><span class="co">#&gt;     ...)</span></span>
-<span><span class="co">#&gt; debug: theme_add &lt;- purrr::keep(list(...), is.theme)</span></span>
-<span><span class="co">#&gt; debug: ggplot(delta_ce, aes(x = .data$delta_e, y = .data$delta_c, group = factor(.data$comparison), </span></span>
-<span><span class="co">#&gt;     col = factor(.data$comparison), shape = factor(.data$comparison))) + </span></span>
-<span><span class="co">#&gt;     do.call(geom_polygon, plot_params$area) + theme_ceplane() + </span></span>
-<span><span class="co">#&gt;     theme_add + geom_point(size = plot_params$point$size) + ceplane_legend_manual(he, </span></span>
-<span><span class="co">#&gt;     plot_params) + geom_hline(yintercept = 0, colour = "grey") + </span></span>
-<span><span class="co">#&gt;     geom_vline(xintercept = 0, colour = "grey") + geom_text(data = data.frame(x = colMeans(he$delta_e), </span></span>
-<span><span class="co">#&gt;     y = colMeans(he$delta_c)), aes(x = .data$x, y = .data$y, </span></span>
-<span><span class="co">#&gt;     label = if (plot_params$icer_annot) {</span></span>
-<span><span class="co">#&gt;         line_labels.default(he, ref_first = graph_params$ref_first)</span></span>
-<span><span class="co">#&gt;     } else {</span></span>
-<span><span class="co">#&gt;         ""</span></span>
-<span><span class="co">#&gt;     }), inherit.aes = FALSE, show.legend = FALSE, hjust = 0, </span></span>
-<span><span class="co">#&gt;     vjust = 0) + scale_y_continuous(labels = scales::label_dollar(prefix = plot_params$currency)) + </span></span>
-<span><span class="co">#&gt;     coord_cartesian(xlim = plot_params$xlim, ylim = plot_params$ylim, </span></span>
-<span><span class="co">#&gt;         expand = FALSE) + do.call(labs, list(title = plot_params$title, </span></span>
-<span><span class="co">#&gt;     x = plot_params$xlab, y = plot_params$ylab)) + do.call(geom_abline, </span></span>
-<span><span class="co">#&gt;     c(slope = plot_params$wtp_value, plot_params$line)) + do.call(geom_point, </span></span>
-<span><span class="co">#&gt;     plot_params$icer) + do.call(annotate, plot_params$wtp) + </span></span>
-<span><span class="co">#&gt;     do.call(annotate, plot_params$icer_txt) + do.call(theme, </span></span>
-<span><span class="co">#&gt;     plot_params$legend)</span></span></code></pre></div>
+<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-18-1.png" width="576"></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/contour2.html">contour2</a></span><span class="op">(</span><span class="va">he</span>, wtp <span class="op">=</span> <span class="fl">250</span>,</span>
@@ -1185,197 +264,23 @@ change the colour and point type for each comparison.</p>
 <span>         line <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>         point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"plum"</span>, <span class="st">"tomato"</span>, <span class="st">"springgreen"</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
 <span>         icer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
-<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; Called from: ceplane.plot.bcea(he, comparison = NULL, wtp = wtp, pos = pos, </span></span>
-<span><span class="co">#&gt;     graph = "base", ...)</span></span>
-<span><span class="co">#&gt; debug: graph &lt;- match.arg(graph)</span></span>
-<span><span class="co">#&gt; debug: he &lt;- setComparisons(he, comparison)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span>
-<span><span class="co">#&gt; debug: if (is_baseplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span>
-<span><span class="co">#&gt; } else if (is_ggplot(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_ggplot(he, pos_legend = pos, graph_params, ...)</span></span>
-<span><span class="co">#&gt; } else if (is_plotly(graph)) {</span></span>
-<span><span class="co">#&gt;     ceplane_plot_plotly(he, wtp, graph_params, pos_legend = pos)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: ceplane_plot_base(he, wtp, pos_legend = pos, graph_params)</span></span></code></pre></div>
+<span>         contour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-19-1.png" width="576"></p>
 <p>Reposition legend.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>    <span class="co"># bottom right</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>    <span class="co"># bottom right</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-20-1.png" width="576"></p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-20-2.png" width="576"></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-20-3.png" width="576"></p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-20-4.png" width="576"></p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Called from: prep_ceplane_params(he, wtp = 1e+07, ...)</span></span>
-<span><span class="co">#&gt; debug: graph_params &lt;- list(...)</span></span>
-<span><span class="co">#&gt; debug: if (!is.list(wtp_params)) {</span></span>
-<span><span class="co">#&gt;     wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; debug: wtp_params &lt;- list(value = wtp_params)</span></span>
-<span><span class="co">#&gt; debug: intervs_in_title &lt;- paste("\n", he$interventions[he$ref], "vs", </span></span>
-<span><span class="co">#&gt;     paste0(he$interventions[he$comp], collapse = ", "))</span></span>
-<span><span class="co">#&gt; debug: plot_title &lt;- paste0("Cost-Effectiveness Plane", ifelse(he$n_comparisons == </span></span>
-<span><span class="co">#&gt;     1, yes = intervs_in_title, no = ""))</span></span>
-<span><span class="co">#&gt; debug: axes_lim &lt;- xy_params(he, wtp_params$value, graph_params)</span></span>
-<span><span class="co">#&gt; debug: default_params &lt;- list(xlab = "Incremental effectiveness", ylab = "Incremental cost", </span></span>
-<span><span class="co">#&gt;     title = plot_title, xlim = axes_lim$x, ylim = axes_lim$y, </span></span>
-<span><span class="co">#&gt;     point = list(color = grey.colors(n = he$n_comparisons, end = 0.7, </span></span>
-<span><span class="co">#&gt;         alpha = 1), size = 0.35, shape = rep(20, he$n_comparisons)), </span></span>
-<span><span class="co">#&gt;     wtp = list(value = 25000), area_include = TRUE, ICER_size = 2, </span></span>
-<span><span class="co">#&gt;     area = list(col = "grey95"), ref_first = TRUE)</span></span>
-<span><span class="co">#&gt; debug: out &lt;- modifyList(modifyList(default_params, graph_params), list(wtp = wtp_params))</span></span>
-<span><span class="co">#&gt; debug: out$wtp$label &lt;- paste0("  k = ", format(out$wtp$value, digits = 6), </span></span>
-<span><span class="co">#&gt;     "\n")</span></span>
-<span><span class="co">#&gt; debug: out$wtp_value &lt;- out$wtp$value</span></span>
-<span><span class="co">#&gt; debug: out$wtp$value &lt;- NULL</span></span>
-<span><span class="co">#&gt; debug: out</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/contour.html">contour</a></span><span class="op">(</span><span class="va">he</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contour_files/figure-html/unnamed-chunk-20-5.png" width="576"></p>
 <!-- ```{r echo=FALSE} -->
 <!-- # create output docs -->
