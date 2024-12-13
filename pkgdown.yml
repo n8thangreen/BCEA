@@ -1,5 +1,5 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   bcea: bcea.html
@@ -11,8 +11,7 @@ articles:
   eib: eib.html
   paired_vs_multiple_comps: paired_vs_multiple_comps.html
   Set_bcea_parameters: Set_bcea_parameters.html
-last_built: 2024-05-30T16:42Z
+last_built: 2024-12-13T14:41Z
 urls:
   reference: https://n8thangreen.github.io/BCEA/reference
   article: https://n8thangreen.github.io/BCEA/articles
-
