@@ -27,6 +27,7 @@ order to perform structural PSA."><meta property="og:image" content="https://n8t
     <li><a class="dropdown-item" href="../articles/CEriskav.html">Risk Aversion Analysis</a></li>
     <li><a class="dropdown-item" href="../articles/contour.html">Contour Plots</a></li>
     <li><a class="dropdown-item" href="../articles/eib.html">Expected Incremental Benefit Plot</a></li>
+    <li><a class="dropdown-item" href="../articles/evppi.html">EVPPI plots</a></li>
     <li><a class="dropdown-item" href="../articles/paired_vs_multiple_comps.html">Paired vs Multiple Comparisons</a></li>
     <li><a class="dropdown-item" href="../articles/Set_bcea_parameters.html">Set bcea() Parameters: Constructor and Setters</a></li>
   </ul></li>
@@ -78,13 +79,13 @@ average</p></dd>
 
 <dt id="arg-effect">effect<a class="anchor" aria-label="anchor" href="#arg-effect"></a></dt>
 <dd><p>A list containing the measure of effectiveness computed from
-the various models (one matrix with n.sim x n.ints simulations for each
+the various models (one matrix with <code>n_sim</code> x <code>n_ints</code> simulations for each
 model)</p></dd>
 
 
 <dt id="arg-cost">cost<a class="anchor" aria-label="anchor" href="#arg-cost"></a></dt>
 <dd><p>A list containing the measure of costs computed from the various
-models (one matrix with n.sim x n.ints simulations for each model)</p></dd>
+models (one matrix with <code>n_sim</code> x <code>n_ints</code> simulations for each model)</p></dd>
 
 
 <dt id="arg-ref">ref<a class="anchor" aria-label="anchor" href="#arg-ref"></a></dt>
@@ -113,7 +114,7 @@ the summary plot or not</p></dd>
 
 
 <dt id="arg-w">w<a class="anchor" aria-label="anchor" href="#arg-w"></a></dt>
-<dd><p>A vector of weights. By default it's NULL to indicate that the
+<dd><p>A vector of weights. By default it's <code>NULL</code> to indicate that the
 function will calculate the model weights based on DIC and the individual
 model fit. This behaviour can be overridden by passing a vector <code>w</code>,
 for instance based on expert opinion</p></dd>
@@ -128,9 +129,9 @@ for instance based on expert opinion</p></dd>
     <p>The model is a list containing the output from either R2jags or
 R2WinBUGS for all the models that need to be combined in the model average
 effect is a list containing the measure of effectiveness computed from the
-various models (one matrix with n_sim x n_ints simulations for each model)
+various models (one matrix with <code>n_sim</code> x <code>n_ints</code> simulations for each model)
 cost is a list containing the measure of costs computed from the various
-models (one matrix with n_sim x n_ints simulations for each model).</p>
+models (one matrix with <code>n_sim</code> x <code>n_ints</code> simulations for each model).</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
