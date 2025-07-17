@@ -1,19 +1,29 @@
-# BCEA 2.4.8 (dev)
 
+# BCEA 2.4.82 (dev)
 
-# BCEA 2.4.8
+# BCEA 2.4.81
+
+_July 2025_
+
+* Fix a small issue in `multi.ce`. The CRAN version has removed the use of `BCEA:::compute_p_best_interv`, which computes the probability that each intervention is the 
+most cost-effective, for each value of the willingness to pay. The output of that call must be passed as input to `BCEA:::ceac_plot_XXXX.pairwise` in order for
+`ceac.plot` to produce the individual probability of cost-effectiveness
+
+* Fix the function `summary.pairwise` to comply with the changes in `multi.ce`
+
+# BCEA 2.4.8 
 
 _June 2025_
 
 * In `bcea()` the probability of an intervention being 'best' was the most cost-effective one calculated using `compute_p_optimal_best()`. However, this is not actually how this is defined in the literature
 for the cost-effectiveness acceptability frontier (CEAF). Is should be calculated as the probability that the best intervention is the 'optimal' one, that is the one on average using the mean cost and mean effectiveness. We're replaced
-this internal with `compute_p_optimal_best()`. In most cases this will make very little difference but when the cost or effectiveness are (highly) skewed they may deviate. 
+this internal with `compute_p_optimal_best()`. In most cases this will make very little difference but when the cost or effectiveness are (highly) skewed they may deviate (a0b9ed6). 
 
-* Many changes to the `plotly` infrastracture, which are helpful for `BCEAweb`.
+* Many changes to the `plotly` infrastracture, which are helpful for `BCEAweb` (a565620). 
 
-* Reformatting of the example datasets.
+* Reformatting of the example datasets (daa2494).
 
-* Aligns examples and code with newer version of `ggplot2`.
+* Aligns examples and code with newer version of `ggplot2` (c1e0aac).
 
 
 # BCEA 2.4.7

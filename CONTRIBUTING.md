@@ -9,18 +9,18 @@ Before you start:
 
 ## Did you find a bug?
 
--   Make sure the bug was not already reported in the Github [Issues](https://github.com/n8thangreen/BCEA/issues).
--   [Open an issue](https://github.com/n8thangreen/BCEA/issues/new) and clearly describe the issue with as much information as possible. A code sample or an executable test case are recommended.
+-   Make sure the bug was not already reported in the Github [Issues](https://github.com/giabaio/BCEA/issues).
+-   [Open an issue](https://github.com/giabaio/BCEA/issues/new) and clearly describe the issue with as much information as possible. A code sample or an executable test case are recommended.
 
 ## Did you plan to write a patch that fixes a bug?
 
--   [Open an issue](https://github.com/n8thangreen/BCEA/issues/new) and clearly describe the problem and discuss how your solution will affect `BCEA`.
+-   [Open an issue](https://github.com/giabaio/BCEA/issues/new) and clearly describe the problem and discuss how your solution will affect `BCEA`.
 -   Fork the repository on GitHub to work on the patch.
 -   Get in touch with the maintainer to refine and prioritize your issue.
 
 ## Making changes and Pull requests
 
--   Start your work on your fork of the repository. If you haven't done this before, try using `usethis::create_from_github("n8thangreen/BCEA", fork = TRUE)`.
+-   Start your work on your fork of the repository. If you haven't done this before, try using `usethis::create_from_github("giabaio/BCEA", fork = TRUE)`.
 -   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`.
 -   Create a Git branch for your pull request (PR). You may want to use `usethis::pr_init("brief-description-of-change")`.
 -   Check for unnecessary whitespace with `git diff --check` and format code.
