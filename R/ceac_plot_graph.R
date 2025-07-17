@@ -126,19 +126,20 @@ ceac_ggplot <- function(he,
   n_lines <- ncol(ceac_dat)
   len_k <- length(he$k)
   
-  data_psa <-
-    tibble(k = rep(he$k,
-                   times = n_lines),
-           ceac = c(ceac_dat),
-           comparison = as.factor(rep(1:n_lines, each = len_k)))
+  data_psa <- 
+    reshape2::melt(data = ceac_dat,
+                   varnames = c("id", "name"),
+                   value.name = "ceac") |> 
+    mutate(k = he$k[id]) |>
+    as_tibble()
   
   graph_params <- helper_ggplot_params(he, graph_params)
   legend_params <- make_legend_ggplot(he, pos_legend)
   theme_add <- Filter(f = \(val) ggplot2::is_theme(val), x = extra_params)
 
   ggplot(data_psa, aes(x = .data$k, y = .data$ceac)) +
-    geom_line(aes(linetype = .data$comparison,
-                  color = factor(.data$comparison))) +
+    geom_line(aes(linetype = .data$name,
+                  color = factor(.data$name))) +
     theme_ceac() + 
     theme_add +                                            # theme
     scale_y_continuous(limits = c(0, 1)) +
