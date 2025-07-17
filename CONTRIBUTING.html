@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.82</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,8 @@
       <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="articles/bcea.html">Getting Started</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="articles/BCEA_package.html">Bayesian Cost-Effectiveness Analysis</a></li>
+    <li><a class="dropdown-item" href="articles/bcea.html">Getting Started</a></li>
     <li><a class="dropdown-item" href="articles/ceac.html">Cost-Effectiveness Acceptability Curve Plots</a></li>
     <li><a class="dropdown-item" href="articles/ceef.html">Cost-Effectiveness Efficiency Frontier</a></li>
     <li><a class="dropdown-item" href="articles/ceplane.html">Cost-effectiveness plane</a></li>
@@ -33,7 +34,7 @@
 <li class="nav-item"><a class="nav-link" href="bcea_cheatsheet.pdf">Cheatsheet</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/n8thangreen/BCEA/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/giabaio/BCEA/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -42,7 +43,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="logo.png" class="logo" alt=""><h1>Contributing to BCEA</h1>
-      <small class="dont-index">Source: <a href="https://github.com/n8thangreen/BCEA/blob/dev/CONTRIBUTING.md" class="external-link"><code>CONTRIBUTING.md</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/giabaio/BCEA/blob/main/CONTRIBUTING.md" class="external-link"><code>CONTRIBUTING.md</code></a></small>
     </div>
 
 
@@ -54,20 +55,20 @@
 <li>Trivial changes to comments or documentation do not require creating a new issue.</li>
 </ul><div class="section level2">
 <h2 id="did-you-find-a-bug">Did you find a bug?<a class="anchor" aria-label="anchor" href="#did-you-find-a-bug"></a></h2>
-<ul><li>Make sure the bug was not already reported in the Github <a href="https://github.com/n8thangreen/BCEA/issues" class="external-link">Issues</a>.</li>
+<ul><li>Make sure the bug was not already reported in the Github <a href="https://github.com/giabaio/BCEA/issues" class="external-link">Issues</a>.</li>
 <li>
-<a href="https://github.com/n8thangreen/BCEA/issues/new" class="external-link">Open an issue</a> and clearly describe the issue with as much information as possible. A code sample or an executable test case are recommended.</li>
+<a href="https://github.com/giabaio/BCEA/issues/new" class="external-link">Open an issue</a> and clearly describe the issue with as much information as possible. A code sample or an executable test case are recommended.</li>
 </ul></div>
 <div class="section level2">
 <h2 id="did-you-plan-to-write-a-patch-that-fixes-a-bug">Did you plan to write a patch that fixes a bug?<a class="anchor" aria-label="anchor" href="#did-you-plan-to-write-a-patch-that-fixes-a-bug"></a></h2>
 <ul><li>
-<a href="https://github.com/n8thangreen/BCEA/issues/new" class="external-link">Open an issue</a> and clearly describe the problem and discuss how your solution will affect <code>BCEA</code>.</li>
+<a href="https://github.com/giabaio/BCEA/issues/new" class="external-link">Open an issue</a> and clearly describe the problem and discuss how your solution will affect <code>BCEA</code>.</li>
 <li>Fork the repository on GitHub to work on the patch.</li>
 <li>Get in touch with the maintainer to refine and prioritize your issue.</li>
 </ul></div>
 <div class="section level2">
 <h2 id="making-changes-and-pull-requests">Making changes and Pull requests<a class="anchor" aria-label="anchor" href="#making-changes-and-pull-requests"></a></h2>
-<ul><li>Start your work on your fork of the repository. If you haven’t done this before, try using <code>usethis::create_from_github("n8thangreen/BCEA", fork = TRUE)</code>.</li>
+<ul><li>Start your work on your fork of the repository. If you haven’t done this before, try using <code>usethis::create_from_github("giabaio/BCEA", fork = TRUE)</code>.</li>
 <li>Install all development dependencies with <code>devtools::install_dev_deps()</code>, and then make sure the package passes R CMD check by running <code>devtools::check()</code>.</li>
 <li>Create a Git branch for your pull request (PR). You may want to use <code>usethis::pr_init("brief-description-of-change")</code>.</li>
 <li>Check for unnecessary whitespace with <code>git diff --check</code> and format code.</li>
