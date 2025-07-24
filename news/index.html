@@ -20,7 +20,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/BCEA_package.html">Bayesian Cost-Effectiveness Analysis</a></li>
     <li><a class="dropdown-item" href="../articles/bcea.html">Getting Started</a></li>
-    <li><a class="dropdown-item" href="../articles/ceac.html">Cost-Effectiveness Acceptability Curve (CEAC) Plots</a></li>
+    <li><a class="dropdown-item" href="../articles/ceac.html">Cost-Effectiveness Acceptability Curve Plots</a></li>
     <li><a class="dropdown-item" href="../articles/ceef.html">Cost-Effectiveness Efficiency Frontier</a></li>
     <li><a class="dropdown-item" href="../articles/ceplane.html">Cost-effectiveness plane</a></li>
     <li><a class="dropdown-item" href="../articles/CEriskav.html">Risk Aversion Analysis</a></li>
@@ -48,7 +48,15 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.4.82" id="bcea-2482-dev">BCEA 2.4.82 (dev)<a class="anchor" aria-label="anchor" href="#bcea-2482-dev"></a></h2>
-</div>
+<p><em>July 2025</em></p>
+<ul><li><p>Removes the folder <code>inst/jags</code>, which contains an old <code>Rmd</code> example, that is not used any more (6edb41c).</p></li>
+<li><p>Removes the folder <code>inst/rmarkdown/report</code>, which is a left-over from when <code>BCEAweb</code> was part of the main <code>BCEA</code> (a41aec6).</p></li>
+<li><p>Simplifies documentation of <code>contour</code> (a41aec6).</p></li>
+<li><p>Removes the Suggest for <code>vdiffr</code>, which is not really used (6e3ef67).</p></li>
+<li><p>Updates documentation for <code>CEriskav</code> (40b0183).</p></li>
+<li><p>Removes the dependence to the deprecated <code>reshape2</code> and move code to use <code>tidyr</code> (dfbd68b).</p></li>
+<li><p>The helper function <code>line_labels</code> would mess up with the labels in the <code>multi.ce</code> plot. Fixed now (37bd270).</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.4.81" id="bcea-2481">BCEA 2.4.81<a class="anchor" aria-label="anchor" href="#bcea-2481"></a></h2>
 <p><em>July 2025</em></p>
