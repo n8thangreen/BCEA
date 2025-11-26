@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.82</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.83</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,12 +47,23 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="2.4.82" id="bcea-2482-dev">BCEA 2.4.82 (dev)<a class="anchor" aria-label="anchor" href="#bcea-2482-dev"></a></h2>
-<p><em>Sept 2025</em></p>
-<ul><li><p>Fix documentation and order of the arguments in <code>evppi.R</code>.</p></li>
-<li><p>Move <code>rstan</code> to <code>Suggests</code></p></li>
-<li><p>Removes the <code>make.report</code> function, which is now completely left to <code>BCEAweb</code>. Automatic creation of a pdf/docx report is still possible, but can be done calling <code>BCEAweb</code>.</p></li>
-<li><p>Removes <code>revdep</code> as it was a left-over of an older version.</p></li>
+<h2 class="pkg-version" data-toc-text="2.4.83" id="bcea-2483-dev">BCEA 2.4.83 (dev)<a class="anchor" aria-label="anchor" href="#bcea-2483-dev"></a></h2>
+<p><em>November 2025</em></p>
+<ul><li><p>Fixes a nasty bug in <code>ceplane_plot_graph.R</code> – now that we’re not using <code>reshape2</code>, we must enforce the column <code>comparison</code> created in the object <code>delta_ce</code> to be a factor.</p></li>
+<li><p>Updates code in <code>contour_ggplot_params.R</code> to avoid <code>ggplot2</code> warnings about <code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">aes_string()</a></code> and the use of <code>size</code> instead of <code>linewidth</code> (both now deprecated).</p></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="2.4.82" id="bcea-2482">BCEA 2.4.82<a class="anchor" aria-label="anchor" href="#bcea-2482"></a></h2>
+<p><em>October 2025</em></p>
+<ul><li><p>In <code>bcea.default.R</code>, removes the methods specific to <code>bugs</code>, <code>rstan</code> and <code>rjags</code>, since we didn’t really need them? This streamlines the package is it removes the dependencies on <code>rstan</code> and <code>rjags</code>. (34efe54).</p></li>
+<li><p>Updates the help for <code>CreateInputs.R</code> to clarify the nature of the <code>inputs</code> object. (34efe54).</p></li>
+<li><p>Updates the tests according to the changes in <code>bcea.default.R</code>. (34efe54).</p></li>
+<li><p>Removes a few (now) unnecessary dependencies: <code>MCMCvis</code>, <code>reshape2</code>, <code>rlang</code>, <code>rstan</code>. Also removes the suggested packages, <code>coda</code>, <code>plotrix</code>, <code>RColorBrewer</code>, <code>rjags</code>, <code>rmarkdown</code>, <code>splancs</code> and <code>vdiffr</code>. Installation should be quicker now. (34efe54).</p></li>
+</ul><p><em>September 2025</em></p>
+<ul><li><p>Fix documentation and order of the arguments in <code>evppi.R</code>. (ded3dc8).</p></li>
+<li><p>Move <code>rstan</code> to <code>Suggests</code>. (ded3dc8).</p></li>
+<li><p>Removes the <code>make.report</code> function, which is now completely left to <code>BCEAweb</code>. Automatic creation of a pdf/docx report is still possible, but can be done calling <code>BCEAweb</code>. (ded3dc8).</p></li>
+<li><p>Removes <code>revdep</code> as it was a left-over of an older version. (ded3dc8).</p></li>
 </ul><p><em>July 2025</em></p>
 <ul><li><p>Fix the code in the vignettes to remove dependency on <code>reshape2</code> (6279bb6).</p></li>
 <li><p>Removes the folder <code>inst/jags</code>, which contains an old <code>Rmd</code> example, that is not used any more (6edb41c).</p></li>
@@ -133,7 +144,7 @@
 <h3 id="bug-fixes-2-4-3">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-2-4-3"></a></h3>
 <ul><li>Consistent colours across plots for each intervention for grid of plots in <code><a href="../reference/plot.bcea.html">plot.bcea()</a></code> (cf1ee43)</li>
 <li>
-<code>make.report()</code> change variable name (f940f2e)</li>
+<code><a href="../reference/BCEA-deprecated.html">make.report()</a></code> change variable name (f940f2e)</li>
 <li>Fixed issue with summary table where names of interventions in the wrong order (6a006e3)</li>
 <li>
 <code><a href="../reference/summary.bcea.html">summary.bcea()</a></code> now only prints results for chosen comparisons and not always all of them. <code>kstar</code> and <code>best</code> in <code><a href="../reference/bcea.html">bcea()</a></code> object were not updated with subset of interventions (<a href="https://github.com/giabaio/BCEA/issues/125" class="external-link">#125</a>)</li>
@@ -250,7 +261,7 @@
 <li>
 <code><a href="../reference/createInputs.html">createInputs()</a></code> used for EVPI calculation now dispatches S3 methods by JAGS, BUGS, Stan and other R data types.</li>
 <li>
-<code>make.report()</code> rewritten to have separate section files.</li>
+<code><a href="../reference/BCEA-deprecated.html">make.report()</a></code> rewritten to have separate section files.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-2-4-1-1">New features<a class="anchor" aria-label="anchor" href="#new-features-2-4-1-1"></a></h3>
@@ -414,7 +425,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

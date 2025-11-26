@@ -23,7 +23,7 @@ non-Bayesian model)."><meta property="og:image" content="https://n8thangreen.git
 
     <a class="navbar-brand me-2" href="../index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.82</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.83</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,9 +103,17 @@ non-Bayesian model).</p>
 
 
 <dl><dt id="arg-inputs">inputs<a class="anchor" aria-label="anchor" href="#arg-inputs"></a></dt>
-<dd><p>A <code>rjags</code>, <code>bugs</code> or <code>stanfit</code> object, containing
-the results of a call to either JAGS, (using <code>R2jags</code>), BUGS
-(using <code>R2WinBUGS</code>, or Stan (using <code>rstan</code>).</p></dd>
+<dd><p>An object containing suitable simulations for the model
+parameters. It can be a <code>rjags</code> or <code>bugs</code> object (obtained directly by
+running <code>R2jags</code>, <code>rjags</code>, <code>R2OpenBUGS</code> or <code>R2WinBUGS</code>). For those objects,
+which are in the class <code>rjags</code> or <code>bugs</code>, the user can simply pass them to
+<code>createInputs()</code>, which will now how to process them. If the user has
+run their model using <code>rstan</code>, then they should pre-process the output using
+the <code>rstan::extract()</code> function; so if <code>rstan</code> is used to run a Bayesian
+model and save the results to, say, the object <code>fit</code>, then the user should
+first create another object <code>tmp=rstan::extract(fit) |&gt; as.data.frame()</code>
+and then pass this onto <code>createInputs()</code>. Finally, this function handles
+inputs from data-frames of vectors directly.</p></dd>
 
 
 <dt id="arg-print-is-linear-comb">print_is_linear_comb<a class="anchor" aria-label="anchor" href="#arg-print-is-linear-comb"></a></dt>
@@ -147,7 +155,7 @@ of all the monitored parameters</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

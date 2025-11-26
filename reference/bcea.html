@@ -13,7 +13,7 @@ an object of the class "bcea".'><meta property="og:image" content="https://n8tha
 
     <a class="navbar-brand me-2" href="../index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.82</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.83</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,16 +85,7 @@ an object of the class "bcea".</p>
 <span>  k <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  plot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for class 'rjags'</span></span>
-<span><span class="fu">bcea</span><span class="op">(</span><span class="va">eff</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for class 'rstan'</span></span>
-<span><span class="fu">bcea</span><span class="op">(</span><span class="va">eff</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for class 'bugs'</span></span>
-<span><span class="fu">bcea</span><span class="op">(</span><span class="va">eff</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -105,14 +96,16 @@ an object of the class "bcea".</p>
 <dd><p>An object containing <code>nsim</code> simulations for the variable of
 clinical effectiveness for each intervention being considered. In general it
 is a matrix with <code>nsim</code> rows and <code>nint</code> columns.
-This is partially matched with <code>e</code> from previous version of <code>BCEA</code> for back-compatibility.</p></dd>
+This is partially matched with <code>e</code> from previous version of <code>BCEA</code> for
+back-compatibility.</p></dd>
 
 
 <dt id="arg-cost">cost<a class="anchor" aria-label="anchor" href="#arg-cost"></a></dt>
 <dd><p>An object containing <code>nsim</code> simulations for the variable of
 cost for each intervention being considered. In general it is a matrix with
 <code>nsim</code> rows and <code>nint</code> columns.
-This is partially matched with <code>c</code> from previous version of <code>BCEA</code> for back-compatibility.</p></dd>
+This is partially matched with <code>c</code> from previous version of <code>BCEA</code> for
+back-compatibility.</p></dd>
 
 
 <dt id="arg-ref">ref<a class="anchor" aria-label="anchor" href="#arg-ref"></a></dt>
@@ -149,8 +142,9 @@ on a discrete grid in the interval <code>[0, Kmax]</code>. The grid is equal to
 to pay grid. Should be of length &gt; 1 otherwise plots will be empty.
 If not specified then BCEA will construct a grid of 501 values
 from 0 to <code>Kmax</code>. This option is useful when performing intensive
-computations (e.g. for the EVPPI). This was changed from <code>wtp</code> in previous versions
-for consistency with other functions and so will be deprecated in the future.</p></dd>
+computations (e.g. for the EVPPI). This was changed from <code>wtp</code> in previous
+versions for consistency with other functions and so will be deprecated in
+the future.</p></dd>
 
 
 <dt id="arg-plot">plot<a class="anchor" aria-label="anchor" href="#arg-plot"></a></dt>
@@ -159,7 +153,7 @@ the summary plot or not.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments</p></dd>
+<dd><p>Additional (optional) parameters</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -292,8 +286,6 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>      opt.theme<span class="op">=</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text<span class="op">=</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1000 rows containing missing values or values outside the scale range</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_point()`).</span>
 <span class="r-plt img"><img src="bcea-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the contour and scatterplot of the bivariate </span></span></span>
@@ -332,17 +324,6 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 <span class="r-in"><span>      label.pos<span class="op">=</span><span class="cn">FALSE</span> <span class="co"># alternative position for the wtp label</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`aes_string()` was deprecated in ggplot2 3.0.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use tidy evaluation idioms with `aes()`.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See also `vignette("ggplot2-in-packages")` for more information.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">BCEA</span> package.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   Please report the issue at <span style="color: #0000BB; font-style: italic;">&lt;https://github.com/giabaio/BCEA/issues/&gt;</span>.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `linewidth` instead.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">BCEA</span> package.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>   Please report the issue at <span style="color: #0000BB; font-style: italic;">&lt;https://github.com/giabaio/BCEA/issues/&gt;</span>.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1000 rows containing missing values or values outside the scale range</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_point()`).</span>
 <span class="r-plt img"><img src="bcea-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plots the Expected Incremental Benefit for the "bcea" object m</span></span></span>
@@ -382,7 +363,7 @@ ISSN 1477-0334, <a href="https://doi.org/10.1177/0962280211419832" class="extern
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
