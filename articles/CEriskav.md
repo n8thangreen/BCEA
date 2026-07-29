@@ -3,6 +3,7 @@
 Set-up analysis using smoking cessation data set.
 
 ``` r
+
 data(Smoking)
 
 treats <- c("No intervention", "Self-help", "Individual counselling", "Group counselling")
@@ -13,6 +14,7 @@ Run the risk aversion analysis straight away with both the base R and
 ggplot2 versions of plots.
 
 ``` r
+
 r <- c(0, 0.005, 0.020, 0.035)
 CEriskav(bcea_smoke) <- r
 
@@ -22,6 +24,7 @@ plot(bcea_smoke)
 ![](CEriskav_files/figure-html/unnamed-chunk-3-1.png)![](CEriskav_files/figure-html/unnamed-chunk-3-2.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
@@ -29,7 +32,7 @@ plot(bcea_smoke, graph = "ggplot")
 #> ℹ Using compatibility `.name_repair`.
 #> ℹ The deprecated feature was likely used in the BCEA package.
 #>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -53,6 +56,7 @@ Now we modify the comparison group so that it doesn’t contain 2
 “no intervention”.
 
 ``` r
+
 setComparisons(bcea_smoke) <- c(1,3)
 ```
 
@@ -60,6 +64,7 @@ If we rerun the analysis we should see that the output is exactly the
 same.
 
 ``` r
+
 CEriskav(bcea_smoke) <- r
 
 plot(bcea_smoke)
@@ -68,6 +73,7 @@ plot(bcea_smoke)
 ![](CEriskav_files/figure-html/unnamed-chunk-5-1.png)![](CEriskav_files/figure-html/unnamed-chunk-5-2.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -86,6 +92,7 @@ What happens when we only have one risk adjustment value? Set it to zero
 so this should be exactly the same as the baseline `bcea` case.
 
 ``` r
+
 r <- 0
 CEriskav(bcea_smoke) <- r
 
@@ -95,6 +102,7 @@ plot(bcea_smoke)
 ![](CEriskav_files/figure-html/unnamed-chunk-6-1.png)![](CEriskav_files/figure-html/unnamed-chunk-6-2.png)
 
 ``` r
+
 
 plot(bcea_smoke, graph = "ggplot")
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -112,6 +120,7 @@ plot(bcea_smoke, graph = "ggplot")
 
 ``` r
 
+
 bcea_smoke0 <- bcea(eff, cost, ref = 4, interventions = treats, Kmax = 500)
 eib.plot(bcea_smoke0, comparison = 1)
 ```
@@ -119,6 +128,7 @@ eib.plot(bcea_smoke0, comparison = 1)
 ![](CEriskav_files/figure-html/unnamed-chunk-6-5.png)
 
 ``` r
+
 evi.plot(bcea_smoke0)
 ```
 
@@ -129,6 +139,7 @@ At present the are just calculated and plotting exactly the same way.
 *should we limit values?*
 
 ``` r
+
 # negative
 r <- -0.005
 CEriskav(bcea_smoke) <- r
@@ -138,6 +149,7 @@ plot(bcea_smoke)
 ![](CEriskav_files/figure-html/unnamed-chunk-7-1.png)![](CEriskav_files/figure-html/unnamed-chunk-7-2.png)
 
 ``` r
+
 
 # large
 r <- 2
@@ -158,10 +170,12 @@ intervention” and “individual counselling” interventions from the
 analysis above.
 
 ``` r
+
 setComparisons(bcea_smoke) <- c(3,1)
 ```
 
 ``` r
+
 r <- c(0, 0.005, 0.020, 0.035)
 CEriskav(bcea_smoke) <- r
 
@@ -171,6 +185,7 @@ plot(bcea_smoke)
 ![](CEriskav_files/figure-html/unnamed-chunk-9-1.png)![](CEriskav_files/figure-html/unnamed-chunk-9-2.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -199,6 +214,7 @@ plotting function.
 Check legend position argument:
 
 ``` r
+
 # base R
 plot(bcea_smoke, pos = c(1,0))
 ```
@@ -206,6 +222,7 @@ plot(bcea_smoke, pos = c(1,0))
 ![](CEriskav_files/figure-html/unnamed-chunk-10-1.png)![](CEriskav_files/figure-html/unnamed-chunk-10-2.png)
 
 ``` r
+
 plot(bcea_smoke, pos = c(1,1))
 ```
 
@@ -213,12 +230,14 @@ plot(bcea_smoke, pos = c(1,1))
 
 ``` r
 
+
 plot(bcea_smoke, pos = TRUE)
 ```
 
 ![](CEriskav_files/figure-html/unnamed-chunk-10-5.png)![](CEriskav_files/figure-html/unnamed-chunk-10-6.png)
 
 ``` r
+
 plot(bcea_smoke, pos = FALSE)
 ```
 
@@ -226,30 +245,35 @@ plot(bcea_smoke, pos = FALSE)
 
 ``` r
 
+
 plot(bcea_smoke, pos = "topleft")
 ```
 
 ![](CEriskav_files/figure-html/unnamed-chunk-10-9.png)![](CEriskav_files/figure-html/unnamed-chunk-10-10.png)
 
 ``` r
+
 plot(bcea_smoke, pos = "topright")
 ```
 
 ![](CEriskav_files/figure-html/unnamed-chunk-10-11.png)![](CEriskav_files/figure-html/unnamed-chunk-10-12.png)
 
 ``` r
+
 plot(bcea_smoke, pos = "bottomleft")
 ```
 
 ![](CEriskav_files/figure-html/unnamed-chunk-10-13.png)![](CEriskav_files/figure-html/unnamed-chunk-10-14.png)
 
 ``` r
+
 plot(bcea_smoke, pos = "bottomright")
 ```
 
 ![](CEriskav_files/figure-html/unnamed-chunk-10-15.png)![](CEriskav_files/figure-html/unnamed-chunk-10-16.png)
 
 ``` r
+
 
 # ggplot2
 plot(bcea_smoke, graph = "ggplot", pos = c(1,0))
@@ -267,6 +291,7 @@ plot(bcea_smoke, graph = "ggplot", pos = c(1,0))
 ![](CEriskav_files/figure-html/unnamed-chunk-10-18.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot", pos = c(1,1))
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -283,6 +308,7 @@ plot(bcea_smoke, graph = "ggplot", pos = c(1,1))
 
 ``` r
 
+
 plot(bcea_smoke, graph = "ggplot", pos = TRUE)
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -298,6 +324,7 @@ plot(bcea_smoke, graph = "ggplot", pos = TRUE)
 ![](CEriskav_files/figure-html/unnamed-chunk-10-22.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot", pos = FALSE)
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -314,6 +341,7 @@ plot(bcea_smoke, graph = "ggplot", pos = FALSE)
 
 ``` r
 
+
 plot(bcea_smoke, graph = "ggplot", pos = "top")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -329,6 +357,7 @@ plot(bcea_smoke, graph = "ggplot", pos = "top")
 ![](CEriskav_files/figure-html/unnamed-chunk-10-26.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot", pos = "bottom")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -344,6 +373,7 @@ plot(bcea_smoke, graph = "ggplot", pos = "bottom")
 ![](CEriskav_files/figure-html/unnamed-chunk-10-28.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot", pos = "left")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion
@@ -359,6 +389,7 @@ plot(bcea_smoke, graph = "ggplot", pos = "left")
 ![](CEriskav_files/figure-html/unnamed-chunk-10-30.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot", pos = "right")
 #> Warning in f(names[[col]]): NAs introduced by coercion
 #> Warning in f(names[[col]]): NAs introduced by coercion

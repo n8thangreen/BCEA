@@ -53,9 +53,9 @@ mce.plot(mce, pos = c(1, 0.5), graph = c("base", "ggplot2"), ...)
 ## References
 
 Baio G, Dawid aP (2011). “Probabilistic sensitivity analysis in health
-economics.” *Stat. Methods Med. Res.*, 1–20. ISSN 1477-0334,
+economics.” *Stat. Methods Med. Res.*, 1–20. ISSN 1477-0334.
 [doi:10.1177/0962280211419832](https://doi.org/10.1177/0962280211419832)
-, <https://pubmed.ncbi.nlm.nih.gov/21930515/>.
+. <https://pubmed.ncbi.nlm.nih.gov/21930515/>.
 
 Baio G (2013). *Bayesian Methods in Health Economics*. CRC.
 
@@ -70,6 +70,7 @@ Gianluca Baio, Andrea Berardi
 ## Examples
 
 ``` r
+
 # See Baio G., Dawid A.P. (2011) for a detailed description of the 
 # Bayesian model and economic problem
 

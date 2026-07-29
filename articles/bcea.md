@@ -5,18 +5,21 @@ using **BCEA** using the smoking cessation data set contained in the
 package.
 
 ``` r
+
 library(BCEA)
 ```
 
 Load the data.
 
 ``` r
+
 data(Smoking)
 ```
 
 This study has four interventions.
 
 ``` r
+
 treats <- c("No intervention", "Self-help", "Individual counselling", "Group counselling")
 ```
 
@@ -24,12 +27,14 @@ Setting the reference group (`ref`) to *Group counselling* and the
 maximum willingness to pay (`Kmax`) as 500.
 
 ``` r
+
 bcea_smoke <- bcea(eff, cost, ref = 4, interventions = treats, Kmax = 500)
 ```
 
 We can easily create a grid of the most common plots
 
 ``` r
+
 library(ggplot2)
 library(purrr)
 
@@ -39,18 +44,21 @@ plot(bcea_smoke)
 ![](bcea_files/figure-html/grid-plot-1.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot2")
 ```
 
 ![](bcea_files/figure-html/grid-plot-2.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot2", pos = "bottomvertical")
 ```
 
 ![](bcea_files/figure-html/grid-plot-3.png)
 
 ``` r
+
 plot(bcea_smoke, graph = "ggplot2", pos = "bottomhorizontal")
 ```
 
@@ -59,12 +67,14 @@ plot(bcea_smoke, graph = "ggplot2", pos = "bottomhorizontal")
 Individual plots can be plotting using their own functions.
 
 ``` r
+
 ceplane.plot(bcea_smoke, comparison = 2, wtp = 250)
 ```
 
 ![](bcea_files/figure-html/separate-plots-1.png)
 
 ``` r
+
 
 eib.plot(bcea_smoke)
 ```
@@ -73,6 +83,7 @@ eib.plot(bcea_smoke)
 
 ``` r
 
+
 contour(bcea_smoke)
 ```
 
@@ -80,12 +91,14 @@ contour(bcea_smoke)
 
 ``` r
 
+
 ceac.plot(bcea_smoke)
 ```
 
 ![](bcea_files/figure-html/separate-plots-4.png)
 
 ``` r
+
 
 ib.plot(bcea_smoke)
 #> NB: k (wtp) is defined in the interval [0 - 500]
@@ -97,6 +110,7 @@ More on this in the other vignettes but you can change the default
 plotting style, such as follows.
 
 ``` r
+
 plot(bcea_smoke,
      graph = "ggplot2",
      wtp = 250,
@@ -107,14 +121,14 @@ plot(bcea_smoke,
 #> ℹ Please use the `linewidth` argument instead.
 #> ℹ The deprecated feature was likely used in the BCEA package.
 #>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 #> ℹ Please use `linewidth` instead.
 #> ℹ The deprecated feature was likely used in the BCEA package.
 #>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 ```

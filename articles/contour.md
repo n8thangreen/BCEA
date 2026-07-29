@@ -16,6 +16,7 @@ To calculate these in BCEA we use the
 function.
 
 ``` r
+
 data("Vaccine")
 he <- bcea(eff, cost, ref = 2)
 ```
@@ -24,18 +25,21 @@ The plot defaults to base R plotting. Type of plot can be set explicitly
 using the `graph` argument.
 
 ``` r
+
 contour(he, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-3-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-3-2.png)
 
 ``` r
+
 # ceac.plot(he, graph = "plotly")
 ```
 
@@ -45,12 +49,14 @@ arguments are kept for back-compatibility and the `ggplot2` style
 arguments are used in the associated plot.
 
 ``` r
+
 contour(he, levels = c(0.2, 0.8))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-4-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2", contour = list(breaks = c(0.2, 0.8)))
 ```
 
@@ -60,6 +66,7 @@ Other plotting arguments can be specified such as title, line colour and
 thickness and type of point.
 
 ``` r
+
 contour(he,
         graph = "ggplot2",
         title = "my title",
@@ -69,7 +76,7 @@ contour(he,
 #> ℹ Please use `linewidth` instead.
 #> ℹ The deprecated feature was likely used in the BCEA package.
 #>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 ```
@@ -77,6 +84,7 @@ contour(he,
 ![](contour_files/figure-html/unnamed-chunk-5-1.png)
 
 ``` r
+
 contour(he,
         graph = "base",
         title = "my title",
@@ -93,18 +101,21 @@ function is essentially a wrapper for
 with the addition of contour lines.
 
 ``` r
+
 contour2(he, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-7-1.png)
 
 ``` r
+
 contour2(he, graph = "ggplot2")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-7-2.png)
 
 ``` r
+
 # ceac.plot(he, graph = "plotly")
 ```
 
@@ -112,6 +123,7 @@ Other plotting arguments can be specified in exactly the same way as
 above.
 
 ``` r
+
 contour2(he,
          graph = "ggplot2",
          title = "my title",
@@ -122,6 +134,7 @@ contour2(he,
 ![](contour_files/figure-html/unnamed-chunk-8-1.png)
 
 ``` r
+
 contour2(he,
          graph = "base",
          title = "my title",
@@ -139,6 +152,7 @@ consider.
 #### R code
 
 ``` r
+
 data("Smoking")
 he <- bcea(eff, cost, ref = 4)
 # str(he)
@@ -148,12 +162,14 @@ Because there are multiple groups then the quadrant annotation is
 omitted.
 
 ``` r
+
 contour(he)
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-11-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2")
 ```
 
@@ -162,12 +178,14 @@ contour(he, graph = "ggplot2")
 The `scale` argument determines the smoothness of the contours.
 
 ``` r
+
 contour(he, scale = 0.9)
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-12-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2", scale = 0.9)  ##TODO: what is the equivalent ggplot2 argument?
 ```
 
@@ -176,30 +194,35 @@ contour(he, graph = "ggplot2", scale = 0.9)  ##TODO: what is the equivalent ggpl
 The quantiles or number of levels.
 
 ``` r
+
 contour(he, nlevels = 10)
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-13-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2", contour = list(bins = 10))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-13-2.png)
 
 ``` r
+
 contour(he, levels = c(0.2, 0.8))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-14-1.png)
 
 ``` r
+
 contour(he, graph = "ggplot2", contour = list(breaks = c(0.2, 0.8)))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-14-2.png)
 
 ``` r
+
 contour(he,
         graph = "ggplot2",
         title = "my title",
@@ -212,6 +235,7 @@ contour(he,
 ![](contour_files/figure-html/unnamed-chunk-15-1.png)
 
 ``` r
+
 contour(he,
         graph = "base",
         title = "my title",
@@ -228,12 +252,14 @@ Again, this applies to the
 version of contour plot too.
 
 ``` r
+
 contour2(he, wtp = 250)
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-17-1.png)
 
 ``` r
+
 contour2(he, wtp = 250, graph = "ggplot2")
 ```
 
@@ -243,6 +269,7 @@ The styling of the plot for multiple comparisons can specifically change
 the colour and point type for each comparison.
 
 ``` r
+
 contour2(he, wtp = 250,
          graph = "ggplot2",
          title = "my title",
@@ -255,6 +282,7 @@ contour2(he, wtp = 250,
 ![](contour_files/figure-html/unnamed-chunk-18-1.png)
 
 ``` r
+
 contour2(he, wtp = 250,
          graph = "base",
          title = "my title",
@@ -269,30 +297,35 @@ contour2(he, wtp = 250,
 Reposition legend.
 
 ``` r
+
 contour(he, pos = FALSE)    # bottom right
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-1.png)
 
 ``` r
+
 contour(he, pos = c(0, 0))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-2.png)
 
 ``` r
+
 contour(he, pos = c(0, 1))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-3.png)
 
 ``` r
+
 contour(he, pos = c(1, 0))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-4.png)
 
 ``` r
+
 contour(he, pos = c(1, 1))
 ```
 
