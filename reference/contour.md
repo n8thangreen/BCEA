@@ -12,7 +12,7 @@ density of the differentials of cost (y-axis) and effectiveness
 contour(
   he,
   pos = "topleft",
-  graph = c("base", "ggplot2", "plotly"),
+  graph = options("bcea.graph"),
   comparison = NULL,
   ...
 )
@@ -41,9 +41,13 @@ contour(he, ...)
 - graph:
 
   A string used to select the graphical engine to use for plotting.
-  Should (partial-)match the three options `"base"`, `"ggplot2"` or
-  `"plotly"`. Default value is `"base"`. Not all plotting functions have
-  a `"plotly"` implementation yet.
+  Should (partial-) match the three options `"base"`, `"ggplot2"` or
+  `"plotly"`. Default value is `"ggplot2"`. This is set globally upon
+  loading `BCEA` and can be modified for instance by using
+  `options("bcea.graph"="base")`, or `options("bcea.graph="plotly")`.
+  Partial matching still applies (so `gg`, or `g`, or `pl`, or `p` also
+  work). Not all plotting functions have a `"plotly"` implementation,
+  yet – see the help for the specific functions.
 
 - comparison:
 
@@ -87,7 +91,7 @@ positive/negative values for both \\\Delta_e\\ and \\\Delta_c\\)
 
 ## References
 
-Baio G, Dawid aP (2011). “Probabilistic sensitivity analysis in health
+Baio G, Dawid AP (2011). “Probabilistic sensitivity analysis in health
 economics.” *Stat. Methods Med. Res.*, 1–20. ISSN 1477-0334.
 [doi:10.1177/0962280211419832](https://doi.org/10.1177/0962280211419832)
 . <https://pubmed.ncbi.nlm.nih.gov/21930515/>.

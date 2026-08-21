@@ -20,7 +20,10 @@ mixedAn(he) <- value
 
   A vector of market shares associated with the interventions. Its size
   is the same as the number of possible comparators. By default, assumes
-  uniform distribution for each intervention.
+  uniform distribution for each intervention. Can be passed as a vector
+  (of length equal to the number of interventions being compared) of
+  proportions, or numbers - if the vector's elements do not sum to 1
+  they are automatically normalised.
 
 ## Value
 
@@ -58,7 +61,7 @@ application of cost-effectiveness analysis in regulatory processes.”
 *Pharmacoeconomics*, **27**(8), 5–16. ISSN 20356137.
 [doi:10.1007/bf03320526](https://doi.org/10.1007/bf03320526) .
 
-Baio G, Dawid aP (2011). “Probabilistic sensitivity analysis in health
+Baio G, Dawid AP (2011). “Probabilistic sensitivity analysis in health
 economics.” *Stat. Methods Med. Res.*, 1–20. ISSN 1477-0334.
 [doi:10.1177/0962280211419832](https://doi.org/10.1177/0962280211419832)
 . <https://pubmed.ncbi.nlm.nih.gov/21930515/>.
@@ -95,7 +98,7 @@ m <- bcea(e=eff, c=cost,    # defines the variables of
                             #  in a grid from the interval (0, Kmax)
       plot=FALSE)           # inhibits graphical output
 
-mixedAn(m) <- NULL      # uses the results of the mixed strategy 
+mixedAn(m) <- c(.1,.9)  # uses the results of the mixed strategy 
                         #  analysis (a "mixedAn" object)
                         # the vector of market shares can be defined 
                         #  externally. If NULL, then each of the T 
@@ -103,4 +106,9 @@ mixedAn(m) <- NULL      # uses the results of the mixed strategy
                         # produces the plots
 evi.plot(m)
 
+
+# Can also apply the setter to a new object
+m0 <- `mixedAn<-`(m,c(2,5))
+class(m0)
+#> [1] "mixedAn" "mixedAn" "bcea"    "list"   
 ```

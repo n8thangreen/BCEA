@@ -9,7 +9,7 @@ than one intervention is present on the market."><meta property="og:image" conte
 
     <a class="navbar-brand me-2" href="../index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.83</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.84</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,7 @@ than one intervention is present on the market."><meta property="og:image" conte
     <li><a class="dropdown-item" href="../articles/eib.html">Expected Incremental Benefit Plot</a></li>
     <li><a class="dropdown-item" href="../articles/evppi.html">EVPPI plots</a></li>
     <li><a class="dropdown-item" href="../articles/paired_vs_multiple_comps.html">Paired vs Multiple Comparisons</a></li>
+    <li><a class="dropdown-item" href="../articles/reset_bcea.html">Reset a BCEA object</a></li>
     <li><a class="dropdown-item" href="../articles/Set_bcea_parameters.html">Set bcea() Parameters: Constructor and Setters</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -70,8 +71,11 @@ modelling and the economic evaluation.</p></dd>
 
 <dt id="arg-value">value<a class="anchor" aria-label="anchor" href="#arg-value"></a></dt>
 <dd><p>A vector of market shares associated with the interventions.
-Its size is the same as the number of possible comparators.
-By default, assumes uniform distribution for each intervention.</p></dd>
+Its size is the same as the number of possible comparators. By default,
+assumes uniform distribution for each intervention. Can be passed as a
+vector (of length equal to the number of interventions being compared) of
+proportions, or numbers - if the vector's elements do not sum to 1 they are
+automatically normalised.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -106,7 +110,7 @@ intervention</p></dd>
 ISSN 20356137.
 <a href="https://doi.org/10.1007/bf03320526" class="external-link">doi:10.1007/bf03320526</a>
 .</p>
-<p>Baio G, Dawid aP (2011).
+<p>Baio G, Dawid AP (2011).
 “Probabilistic sensitivity analysis in health economics.”
 <em>Stat. Methods Med. Res.</em>, 1–20.
 ISSN 1477-0334.
@@ -147,7 +151,7 @@ CRC.</p>
 <span class="r-in"><span>                            <span class="co">#  in a grid from the interval (0, Kmax)</span></span></span>
 <span class="r-in"><span>      plot<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>           <span class="co"># inhibits graphical output</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">mixedAn</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>      <span class="co"># uses the results of the mixed strategy </span></span></span>
+<span class="r-in"><span><span class="fu">mixedAn</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>,<span class="fl">.9</span><span class="op">)</span>  <span class="co"># uses the results of the mixed strategy </span></span></span>
 <span class="r-in"><span>                        <span class="co">#  analysis (a "mixedAn" object)</span></span></span>
 <span class="r-in"><span>                        <span class="co"># the vector of market shares can be defined </span></span></span>
 <span class="r-in"><span>                        <span class="co">#  externally. If NULL, then each of the T </span></span></span>
@@ -156,6 +160,10 @@ CRC.</p>
 <span class="r-in"><span><span class="fu"><a href="evi.plot.html">evi.plot</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mixedAn-set-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Can also apply the setter to a new object</span></span></span>
+<span class="r-in"><span><span class="va">m0</span> <span class="op">&lt;-</span> <span class="fu">`mixedAn&lt;-`</span><span class="op">(</span><span class="va">m</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">m0</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "mixedAn" "mixedAn" "bcea"    "list"   </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

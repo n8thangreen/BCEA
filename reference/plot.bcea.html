@@ -9,7 +9,7 @@ Incremental Benefit, the CEAC and the EVPI."><meta property="og:image" content="
 
     <a class="navbar-brand me-2" href="../index.html">BCEA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.83</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.84</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,7 @@ Incremental Benefit, the CEAC and the EVPI."><meta property="og:image" content="
     <li><a class="dropdown-item" href="../articles/eib.html">Expected Incremental Benefit Plot</a></li>
     <li><a class="dropdown-item" href="../articles/evppi.html">EVPPI plots</a></li>
     <li><a class="dropdown-item" href="../articles/paired_vs_multiple_comps.html">Paired vs Multiple Comparisons</a></li>
+    <li><a class="dropdown-item" href="../articles/reset_bcea.html">Reset a BCEA object</a></li>
     <li><a class="dropdown-item" href="../articles/Set_bcea_parameters.html">Set bcea() Parameters: Constructor and Setters</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -62,7 +63,7 @@ Incremental Benefit, the CEAC and the EVPI.</p>
 <span>  comparison <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  wtp <span class="op">=</span> <span class="fl">25000</span>,</span>
 <span>  pos <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  graph <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"base"</span>, <span class="st">"ggplot2"</span>, <span class="st">"plotly"</span><span class="op">)</span>,</span>
+<span>  graph <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"bcea.graph"</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -102,8 +103,13 @@ bottom of the plot.</p></dd>
 
 <dt id="arg-graph">graph<a class="anchor" aria-label="anchor" href="#arg-graph"></a></dt>
 <dd><p>A string used to select the graphical engine to use for
-plotting. Should (partial-)match the options <code>"base"</code>,
-<code>"ggplot2"</code> or <code>"plotly"</code>. Default value is <code>"base"</code>.</p></dd>
+plotting. Should (partial-) match the three options <code>"base"</code>,
+<code>"ggplot2"</code> or <code>"plotly"</code>. Default value is <code>"ggplot2"</code>. This is set
+globally upon loading <code>BCEA</code> and can be modified for instance by using
+<code>options("bcea.graph"="base")</code>, or <code>options("bcea.graph="plotly")</code>. Partial
+matching still applies (so <code>gg</code>, or <code>g</code>, or <code>pl</code>, or <code>p</code> also work). Not
+all plotting functions have a <code>"plotly"</code> implementation, yet – see the
+help for the specific functions.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -128,7 +134,7 @@ are rendered in a slightly different way than single plots.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Baio G, Dawid aP (2011).
+    <p>Baio G, Dawid AP (2011).
 “Probabilistic sensitivity analysis in health economics.”
 <em>Stat. Methods Med. Res.</em>, 1–20.
 ISSN 1477-0334.

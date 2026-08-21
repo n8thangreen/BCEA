@@ -44,7 +44,12 @@ he <-
        plot = FALSE)
 ```
 
-The default EIB plot gives a single diagonal line using base R.
+The plot defaults to `ggplot2` R plotting. Type of plot can be set
+explicitly using the `graph` argument. In fact, the default graphical
+engine is set upon loading `BCEA` and can be modified globally using the
+command `options(bcea.graph="...")`. Choices are `ggplot2`, `base` or
+`plotly`. Partial matching is also available, so that `gg`, `g`, `pl` or
+`p` are recognised alteratives to `ggplot2` or `plotly`, respectively.
 
 ``` r
 
@@ -62,9 +67,6 @@ k^* = \min\{ k : \mbox{EIB} > 0 \}
 ```
 
 This will be at the point the curve crosses the *x*-axis.
-
-The plot defaults to base R plotting. Type of plot can be set explicitly
-using the `graph` argument.
 
 ``` r
 
@@ -109,6 +111,29 @@ eib.plot(he, plot.cri = FALSE)
 
 ![](eib_files/figure-html/unnamed-chunk-6-1.png)
 
+In the `ggplot2` implementation, it is possible to modify the formatting
+of the numerical labels in the $`x-`$ and $`y-`$ axis using `ggplot2`
+failities, such as in the following code.
+
+``` r
+
+# Resets the formatting on the x-axis to simple numbers 
+eib.plot(he) + scale_x_continuous()
+#> Scale for x is already present.
+#> Adding another scale for x, which will replace the existing scale.
+```
+
+![](eib_files/figure-html/unnamed-chunk-7-1.png)
+
+``` r
+
+
+# Uses currency style with £ symbol
+eib.plot(he) + scale_y_continuous(labels=scales::dollar_format(prefix="£"))
+```
+
+![](eib_files/figure-html/unnamed-chunk-7-2.png)
+
 ## Multiple interventions
 
 This situation is when there are more than two interventions to
@@ -152,7 +177,7 @@ he <- bcea(eff, cost, ref = 4, interventions = treats, Kmax = 500)
 eib.plot(he)
 ```
 
-![](eib_files/figure-html/unnamed-chunk-7-1.png)
+![](eib_files/figure-html/unnamed-chunk-8-1.png)
 
 For example, we can change the main title and the EIB line colours to
 green.
@@ -165,7 +190,7 @@ eib.plot(he,
          line = list(color = "green"))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-8-1.png)
+![](eib_files/figure-html/unnamed-chunk-9-1.png)
 
 ``` r
 
@@ -175,7 +200,7 @@ eib.plot(he,
          line = list(color = "green"))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-9-1.png)
+![](eib_files/figure-html/unnamed-chunk-10-1.png)
 
 Credible interval can also be plotted as before. This isn’t recommended
 in this case since its hard to understand with so many lines.
@@ -185,7 +210,7 @@ in this case since its hard to understand with so many lines.
 eib.plot(he, plot.cri = TRUE)
 ```
 
-![](eib_files/figure-html/unnamed-chunk-10-1.png)
+![](eib_files/figure-html/unnamed-chunk-11-1.png)
 
 ##### Repositioning the legend.
 
@@ -193,38 +218,38 @@ For base R,
 
 ``` r
 
-eib.plot(he, pos = FALSE) # bottom right
+eib.plot(he, pos = FALSE, graph = "base") # bottom right
 ```
 
-![](eib_files/figure-html/unnamed-chunk-11-1.png)
+![](eib_files/figure-html/unnamed-chunk-12-1.png)
 
 ``` r
 
-eib.plot(he, pos = c(0, 0))
+eib.plot(he, pos = c(0, 0), graph = "base")
 ```
 
-![](eib_files/figure-html/unnamed-chunk-11-2.png)
+![](eib_files/figure-html/unnamed-chunk-12-2.png)
 
 ``` r
 
-eib.plot(he, pos = c(0, 1))
+eib.plot(he, pos = c(0, 1), graph = "base")
 ```
 
-![](eib_files/figure-html/unnamed-chunk-11-3.png)
+![](eib_files/figure-html/unnamed-chunk-12-3.png)
 
 ``` r
 
-eib.plot(he, pos = c(1, 0))
+eib.plot(he, pos = c(1, 0), graph = "base")
 ```
 
-![](eib_files/figure-html/unnamed-chunk-11-4.png)
+![](eib_files/figure-html/unnamed-chunk-12-4.png)
 
 ``` r
 
-eib.plot(he, pos = c(1, 1))
+eib.plot(he, pos = c(1, 1), graph = "base")
 ```
 
-![](eib_files/figure-html/unnamed-chunk-11-5.png)
+![](eib_files/figure-html/unnamed-chunk-12-5.png)
 
 For `ggplot2`,
 
@@ -234,28 +259,28 @@ For `ggplot2`,
 eib.plot(he, graph = "ggplot2", pos = c(0, 0))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-12-1.png)
+![](eib_files/figure-html/unnamed-chunk-13-1.png)
 
 ``` r
 
 eib.plot(he, graph = "ggplot2", pos = c(0, 1))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-12-2.png)
+![](eib_files/figure-html/unnamed-chunk-13-2.png)
 
 ``` r
 
 eib.plot(he, graph = "ggplot2", pos = c(1, 0))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-12-3.png)
+![](eib_files/figure-html/unnamed-chunk-13-3.png)
 
 ``` r
 
 eib.plot(he, graph = "ggplot2", pos = c(1, 1))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-12-4.png)
+![](eib_files/figure-html/unnamed-chunk-13-4.png)
 
 Define colour palette for different colour for each EIB line.
 
@@ -268,7 +293,7 @@ eib.plot(he,
          line = list(color = mypalette))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-13-1.png)
+![](eib_files/figure-html/unnamed-chunk-14-1.png)
 
 ``` r
 
@@ -278,4 +303,4 @@ eib.plot(he,
          line = list(color = mypalette))
 ```
 
-![](eib_files/figure-html/unnamed-chunk-13-2.png)
+![](eib_files/figure-html/unnamed-chunk-14-2.png)

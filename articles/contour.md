@@ -21,8 +21,12 @@ data("Vaccine")
 he <- bcea(eff, cost, ref = 2)
 ```
 
-The plot defaults to base R plotting. Type of plot can be set explicitly
-using the `graph` argument.
+The plot defaults to `ggplot2` R plotting. Type of plot can be set
+explicitly using the `graph` argument. In fact, the default graphical
+engine is set upon loading `BCEA` and can be modified globally using the
+command `options(bcea.graph="...")`. Choices are `ggplot2`, `base` or
+`plotly`. Partial matching is also available, so that `gg`, `g`, `pl` or
+`p` are recognised alteratives to `ggplot2` or `plotly`, respectively.
 
 ``` r
 
@@ -50,7 +54,7 @@ arguments are used in the associated plot.
 
 ``` r
 
-contour(he, levels = c(0.2, 0.8))
+contour(he, levels = c(0.2, 0.8), graph="base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-4-1.png)
@@ -71,14 +75,7 @@ contour(he,
         graph = "ggplot2",
         title = "my title",
         point = list(color = "blue", shape = 2, size = 5),
-        contour = list(size = 2))
-#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-#> ℹ Please use `linewidth` instead.
-#> ℹ The deprecated feature was likely used in the BCEA package.
-#>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
+        contour = list(linewidth = 2))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-5-1.png)
@@ -89,7 +86,7 @@ contour(he,
         graph = "base",
         title = "my title",
         point = list(color = "blue", shape = 2, size = 2),
-        contour = list(size = 2))
+        contour = list(linewidth = 2))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-6-1.png)
@@ -128,7 +125,7 @@ contour2(he,
          graph = "ggplot2",
          title = "my title",
          point = list(color = "blue", shape = 10, size = 5),
-         contour = list(size = 2))
+         contour = list(linewidth = 2))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-8-1.png)
@@ -139,7 +136,7 @@ contour2(he,
          graph = "base",
          title = "my title",
          point = list(color = "blue", shape = 2, size = 3),
-         contour = list(size = 4))
+         contour = list(linewidth = 4))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-9-1.png)
@@ -163,7 +160,7 @@ omitted.
 
 ``` r
 
-contour(he)
+contour(he, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-11-1.png)
@@ -179,7 +176,7 @@ The `scale` argument determines the smoothness of the contours.
 
 ``` r
 
-contour(he, scale = 0.9)
+contour(he, scale = 0.9, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-12-1.png)
@@ -195,7 +192,7 @@ The quantiles or number of levels.
 
 ``` r
 
-contour(he, nlevels = 10)
+contour(he, nlevels = 10, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-13-1.png)
@@ -209,7 +206,7 @@ contour(he, graph = "ggplot2", contour = list(bins = 10))
 
 ``` r
 
-contour(he, levels = c(0.2, 0.8))
+contour(he, levels = c(0.2, 0.8), graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-14-1.png)
@@ -229,7 +226,7 @@ contour(he,
         line = list(color = "red", size = 1),
         point = list(color = c("plum", "tomato", "springgreen"), shape = 3:5, size = 2),
         icer = list(color = c("red", "orange", "black"), size = 5),
-        contour = list(size = 2))
+        contour = list(linewidth = 2))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-15-1.png)
@@ -242,7 +239,7 @@ contour(he,
         line = list(color = "red", size = 1),
         point = list(color = c("plum", "tomato", "springgreen"), shape = 3:5, size = 2),
         icer = list(color = c("red", "orange", "black"), size = 5),
-        contour = list(size = 4))
+        contour = list(size=2))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-16-1.png)
@@ -253,7 +250,7 @@ version of contour plot too.
 
 ``` r
 
-contour2(he, wtp = 250)
+contour2(he, wtp = 250, graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-17-1.png)
@@ -276,7 +273,14 @@ contour2(he, wtp = 250,
          line = list(color = "red", size = 1),
          point = list(color = c("plum", "tomato", "springgreen"), shape = 3:5, size = 2),
          icer = list(color = c("red", "orange", "black"), size = 5),
-         contour = list(size = 2))
+         contour = list(linewidth = 2))
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+#> ℹ Please use `linewidth` instead.
+#> ℹ The deprecated feature was likely used in the BCEA package.
+#>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-18-1.png)
@@ -289,7 +293,7 @@ contour2(he, wtp = 250,
          line = list(color = "red", size = 1),
          point = list(color = c("plum", "tomato", "springgreen"), shape = 3:5, size = 2),
          icer = list(color = c("red", "orange", "black"), size = 5),
-         contour = list(size = 4))
+         contour = list(linewidth = 4))
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-19-1.png)
@@ -298,35 +302,35 @@ Reposition legend.
 
 ``` r
 
-contour(he, pos = FALSE)    # bottom right
+contour(he, pos = FALSE, graph = "base")    # bottom right
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-1.png)
 
 ``` r
 
-contour(he, pos = c(0, 0))
+contour(he, pos = c(0, 0), graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-2.png)
 
 ``` r
 
-contour(he, pos = c(0, 1))
+contour(he, pos = c(0, 1), graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-3.png)
 
 ``` r
 
-contour(he, pos = c(1, 0))
+contour(he, pos = c(1, 0), graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-4.png)
 
 ``` r
 
-contour(he, pos = c(1, 1))
+contour(he, pos = c(1, 1), graph = "base")
 ```
 
 ![](contour_files/figure-html/unnamed-chunk-20-5.png)

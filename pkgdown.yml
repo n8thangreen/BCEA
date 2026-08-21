@@ -12,8 +12,9 @@ articles:
   eib: eib.html
   evppi: evppi.html
   paired_vs_multiple_comps: paired_vs_multiple_comps.html
+  reset_bcea: reset_bcea.html
   Set_bcea_parameters: Set_bcea_parameters.html
-last_built: 2026-07-29T17:17Z
+last_built: 2026-08-21T08:53Z
 urls:
   reference: https://n8thangreen.github.io/BCEA/reference
   article: https://n8thangreen.github.io/BCEA/articles

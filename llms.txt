@@ -15,7 +15,7 @@ coverage](https://codecov.io/gh/n8thangreen/BCEA/branch/dev/graph/badge.svg)](ht
 > Perform Bayesian Cost-Effectiveness Analysis in R.
 
 🚀 This is the **development version** of the `R` package `BCEA`
-(currently on version 2.4.83). The stable version is now release 2.4.83,
+(currently on version 2.4.84). The stable version is now release 2.4.83,
 on [CRAN](https://cran.r-project.org/web/packages/BCEA/index.html).
 
 ## Contents
@@ -153,21 +153,33 @@ analysis.
 
 - [`setComparisons()`](https://n8thangreen.github.io/BCEA/reference/setComparisons.md)
   : Set Comparisons Group
+
 - [`` `setComparisons<-`() ``](https://n8thangreen.github.io/BCEA/reference/setComparisons_assign.md)
   : Set Comparison Group
+
 - [`` `setKmax<-`() ``](https://n8thangreen.github.io/BCEA/reference/setKmax_assign.md)
   : Set Maximum Willingness to Pay
+
 - [`` `setReferenceGroup<-`() ``](https://n8thangreen.github.io/BCEA/reference/setReferenceGroup_assign.md)
   : Set Reference Group
+
 - [`` `mixedAn<-`() ``](https://n8thangreen.github.io/BCEA/reference/mixedAn-set.md)
   : Cost-Effectiveness Analysis When Multiple (Possibly
   Non-Cost-Effective) Interventions are Present on the Market
+
 - [`` `CEriskav<-`() ``](https://n8thangreen.github.io/BCEA/reference/CEriskav_assign.md)
   : Cost-effectiveness Analysis Including a Parameter of Risk Aversion
+
 - [`multi.ce(`*`<bcea>`*`)`](https://n8thangreen.github.io/BCEA/reference/multi.ce.md)
   : Cost-effectiveness Analysis With Multiple Comparison
+
 - [`struct.psa()`](https://n8thangreen.github.io/BCEA/reference/struct.psa.md)
   : Structural Probability Sensitivity Analysis
+
+- [`reset_bcea()`](https://n8thangreen.github.io/BCEA/reference/reset_bcea.md)
+  :
+
+  Resets a modified `bcea` object
 
 ## Plotting
 
@@ -360,11 +372,8 @@ Helper functions and other intermediate computations.
 
 ## Deprecated
 
-- [`mce.plot()`](https://n8thangreen.github.io/BCEA/reference/mce.plot.md)
-  : Plots the probability that each intervention is the most
-  cost-effective
-
 - [`make.report()`](https://n8thangreen.github.io/BCEA/reference/BCEA-deprecated.md)
+  [`mce.plot()`](https://n8thangreen.github.io/BCEA/reference/BCEA-deprecated.md)
   [`plot.mixedAn()`](https://n8thangreen.github.io/BCEA/reference/BCEA-deprecated.md)
   :
 
@@ -393,5 +402,7 @@ Helper functions and other intermediate computations.
 - [EVPPI plots](https://n8thangreen.github.io/BCEA/articles/evppi.md):
 - [Paired vs Multiple
   Comparisons](https://n8thangreen.github.io/BCEA/articles/paired_vs_multiple_comps.md):
+- [Reset a BCEA
+  object](https://n8thangreen.github.io/BCEA/articles/reset_bcea.md):
 - [Set bcea() Parameters: Constructor and
   Setters](https://n8thangreen.github.io/BCEA/articles/Set_bcea_parameters.md):

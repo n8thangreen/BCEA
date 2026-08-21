@@ -7,7 +7,7 @@ included.
 
 ``` r
 # S3 method for class 'CEriskav'
-plot(x, pos = "topright", graph = c("base", "ggplot2", "plotly"), ...)
+plot(x, pos = c(1, 1), graph = options("bcea.graph"), ...)
 ```
 
 ## Arguments
@@ -33,8 +33,13 @@ plot(x, pos = "topright", graph = c("base", "ggplot2", "plotly"), ...)
 - graph:
 
   A string used to select the graphical engine to use for plotting.
-  Should (partial-)match the options `"base"`, `"ggplot2"` or
-  `"plotly"`. Default value is `"base"`.
+  Should (partial-) match the three options `"base"`, `"ggplot2"` or
+  `"plotly"`. Default value is `"ggplot2"`. This is set globally upon
+  loading `BCEA` and can be modified for instance by using
+  `options("bcea.graph"="base")`, or `options("bcea.graph="plotly")`.
+  Partial matching still applies (so `gg`, or `g`, or `pl`, or `p` also
+  work). Not all plotting functions have a `"plotly"` implementation,
+  yet – see the help for the specific functions.
 
 - ...:
 
@@ -60,7 +65,7 @@ Information when risk aversion is included in the utility function.
 
 ## References
 
-Baio G, Dawid aP (2011). “Probabilistic sensitivity analysis in health
+Baio G, Dawid AP (2011). “Probabilistic sensitivity analysis in health
 economics.” *Stat. Methods Med. Res.*, 1–20. ISSN 1477-0334.
 [doi:10.1177/0962280211419832](https://doi.org/10.1177/0962280211419832)
 . <https://pubmed.ncbi.nlm.nih.gov/21930515/>.
@@ -113,21 +118,19 @@ r <- c(1e-10, 0.005, 0.020, 0.035)
 
 
 # }
-## Alternative options, using ggplot2
+# Alternative options, using base
 # \donttest{
-   plot(m, graph = "ggplot2")
-#> Warning: NAs introduced by coercion
-#> Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
-#> `.name_repair` is omitted as of tibble 2.0.0.
-#> ℹ Using compatibility `.name_repair`.
-#> ℹ The deprecated feature was likely used in the BCEA package.
-#>   Please report the issue at <https://github.com/giabaio/BCEA/issues/>.
-#> Warning: NAs introduced by coercion
-#> Warning: Removed 2004 rows containing missing values or values outside the scale range
-#> (`geom_line()`).
+   plot(m, graph = "base")
 
-#> Warning: Removed 2004 rows containing missing values or values outside the scale range
-#> (`geom_line()`).
 
 # }
+# Can also save the plots to an object
+p=plot(m)
+
+
+# And plot them separately
+p$eib
+
+p$evi
+
 ```

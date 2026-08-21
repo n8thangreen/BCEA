@@ -1,8 +1,50 @@
 # Changelog
 
-## BCEA 2.4.83 (dev)
+## BCEA 2.4.84
+
+*August 2026*
+
+- Adds unit tests + coverage action + badges”
 
 *November 2025*
+
+- Make `ggplot2` the default graphical engine. Vignettes fixed to
+  account for this.
+
+- Fixes `plot.evppi` and `ib.plot` to use `linewidth` instead of
+  deprecated `size` command in the `ggplot2` version.
+
+- Updates `mce.plot` and `plot.mixedAn` (which are in fact deprecated)
+  as well as `plot.evppi` to use the global option for graphical engine
+
+- In fact, there was a problem with how `mixedAn` handled the market
+  shares. Now fixed. Also handles `plot.mixedAn` if the request is for a
+  `plotly` graph, which isn’t implemented.
+
+- Adds a new function `reset_bcea`, which can reset a `BCEA` objects
+  modified by either or `CEriskav`/`mixedAn` to its original status.
+  Also adds documentation and a vignette for the `pkgdown` site.
+
+- Modifies the graphical output of `CEriskav` if `graph="base"`. Now the
+  object can be saved with name and the two graphs called separately.
+
+- Adds automatic normalisation of the vector of market shares in
+  `mixedAn.R` + fix the deprecated plot + add some more description in
+  the help.
+
+- Adds a method to the `make_legend_ggplot.R` function to deal with
+  `CEriskav` objects.
+
+## BCEA 2.4.83
+
+*November 2025*
+
+- Updates the code for `CEriskav` and its `plot` method to work with the
+  `ggplot` version.
+
+- Allows to set the graphical engine globally. Still defaults at `base`,
+  but can set `options(bcea.graph="gg")` to change the behaviour for the
+  session.
 
 - Fixes a nasty bug in `ceplane_plot_graph.R` – now that we’re not using
   `reshape2`, we must enforce the column `comparison` created in the
@@ -12,6 +54,8 @@
   about
   [`aes_string()`](https://ggplot2.tidyverse.org/reference/aes_.html)
   and the use of `size` instead of `linewidth` (both now deprecated).
+  Also updates code in other functions to remove warnings about
+  `ggplot2` deprecation.
 
 ## BCEA 2.4.82
 
@@ -401,7 +445,7 @@ functionality.
   axes and legend setting e.g. `BCEA:::where_legend()`.
 - `ceac_plot()` changes
   - Deprecated
-    [`mce.plot()`](https://n8thangreen.github.io/BCEA/reference/mce.plot.md).
+    [`mce.plot()`](https://n8thangreen.github.io/BCEA/reference/BCEA-deprecated.md).
     Now dispatched on
     [`ceac.plot()`](https://n8thangreen.github.io/BCEA/reference/ceac.plot.md)
     for both
